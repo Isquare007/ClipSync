@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Clipboard to JSON Example</title>
+  </head>
+  <body>
+    <button id="pasteButton">Paste and Parse to JSON</button>
+
+    <script>
+      if (navigator.clipboard) {
+        // The Clipboard API is supported
+
+        const pasteButton = document.querySelector('#pasteButton');
+
+        pasteButton.addEventListener('click', () => {
+          navigator.clipboard.readText()
+            .then((text) => {
+              try {
+                const parsedJSON = JSON.parse(text);
+                console.log('Parsed JSON: ', parsedJSON);
+
+                // Do something with the parsed JSON, e.g. download as a file
+                const data = JSON.stringify(parsedJSON, null, 2);
+                const blob = new Blob([data], { type: 'application/json' });
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(blob);
+                link.download = 'parsed.json';
+                link.click();
+              } catch (error) {
+                console.error('Failed to parse JSON: ', error);
+              }
+            })
+            .catch((error) => {
+              console.error('Failed to paste text: ', error);
+            });
+        });
+      } else {
+        // The Clipboard API is not supported
+        console.warn('Clipboard API not supported');
+      }
+    </script>
+  </body>
+</html>
