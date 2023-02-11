@@ -1,0 +1,140 @@
+body {
+    padding: 0px;
+    display: flex;
+    margin: 0px;
+}
+
+div .nav {
+    /* background-color: blueviolet; */
+    /* overflow: hidden; */
+    /* width: 100%; */
+    height: 50px;
+    position: absolute;
+    top: 0px;
+    margin: 0px 0px;
+    padding: 0px;
+    /* justify-content: space-between; */
+
+}
+
+.nav a {
+    /* position: absolute; */
+    /* left: 0px; */
+    /* color: aqua; */
+    text-align: center;
+    padding: 10px;
+    font-size: 16px;
+}
+
+#headline {
+    font-style: normal;
+    color: #26343f;
+    font-size: 18px;
+    text-align: left;
+    width: 56%;
+    height: 250px;
+}
+
+div {
+    text-align: center;
+    font-size: 24px;
+    padding: 5px;
+    /* background-color: white; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 600px;
+    width: 50%
+}
+
+.login  {
+    float: left;
+    background-color:#8cbbe0
+}
+
+.intro {
+    float: left;
+    background-color: #d9d9d9;
+}
+
+div .logo {
+    position: absolute;
+    height: 50px;
+    width: 50%;
+    top: 0px;
+    /* justify-content: left; */
+}
+
+.log a {
+    color: #d9d9d9;
+    background-color: #26343f;
+    /* margin: 10px; */
+}
+
+
+button {
+    position: absolute;
+    color: #686cee;
+    background-color: #8cbbe0;
+    border: solid 1px #686cee   ;
+    font-size: 14px;
+    border-radius: 25px;
+    width: 100px;
+    height: 35px;
+    right: 100px;
+
+}
+
+/* .nav .sign_up {
+    right: 100px;
+} */
+
+.google {
+    position: absolute;
+    top: 142px;
+    margin: 363px 300px;
+    width: 200px;
+}
+.content p{
+    display: inline-flex;
+    margin: 0px;
+}
+
+button:hover {
+    background-color:#d9d9d9;
+    opacity: 100%;
+}
+
+input[type=text], input[type=password] {
+    width: 70%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    border-radius: 20px;
+    background: #f1f1f1;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+label {
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    display: block;
+    width: 150px;
+    margin: -10px 0px;
+  }
+
+
+.new_user {
+    position: absolute;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    top: 570px;
+    height: 20px;
+    font-size: 14px;
+}
