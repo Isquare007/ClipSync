@@ -1,0 +1,302 @@
+div.container{
+    position: relative;
+    background-color: #F5F5F5;
+    max-width: auto;
+    /* max-height: auto; */
+    display: grid;
+    margin: 70px auto;
+    /* margin-top: 70px; */
+}
+
+div.container > div {
+    height: 750px;
+    max-height: 2000px;
+}
+
+div.container > div.info {
+    height: auto;
+}
+
+div.container > div.first {
+    padding-left:120px;
+    padding-right:60px;
+    padding-top:125px;
+    padding-bottom:125px;
+    width:auto;
+    height: 575px;
+
+    background-color: #000022;
+}
+
+/* First content */
+.container .firstContent{
+    display: flex;
+    position: absolute !important;
+    width:auto;
+    height:auto;
+    margin-left:0px;
+    margin-right:0px;
+    margin-top:0px;
+    margin-bottom:0px;
+    justify-content:center;
+    /* align-items:center; */
+}
+/* div.firstContent {
+    display: flex;
+    margin: 50px 50px;
+    height: 700px;
+} */
+
+.first article{
+    display: block;
+    position: static;
+    width: 450px;
+    height: auto;
+    left: 141px;
+    top: 127px;
+
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 152.4%;
+    /* or 67px */
+
+    /* display: flex; */
+    flex-direction: column;
+    align-items: flex-start;
+    color: #FFFFFF;
+}
+
+.first p{
+    margin: 10px 0px;
+    font-size: 14px;
+}
+
+section.interface {
+    background-image: url(../images/ui.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 650px;
+    height: 650px;
+    position: relative;
+    /* left: 50%; */
+    /* right: 5.02%; */
+    /* top: 4.89%; */
+    /* bottom: 81.41%; */
+    vertical-align: middle;
+}
+
+/* General Styling for all button element */
+
+button {
+    font-family: 'Heebo', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 20px;
+    width: 100px;
+}
+
+button:hover {
+    opacity: 0.6;
+}
+
+button.sign_up {
+    /* position: absolute; */
+    color: #FFFFFF;
+    /* left: 55px; */
+    background: #1F8F76;
+    border-radius: 8px;
+    /* top: 130%; */
+}
+
+button.logIn {
+    background-color: transparent;
+    /* position: absolute; */
+    color: #FFFFFF;
+    /* padding-left: 50px; */
+    margin-left: 75px;
+    /* left: 250px; */
+    /* top: 130%; */
+    width: 100px;
+
+    border: 1px solid #FFFFFF;
+    border-radius: 8px;
+}
+
+@media (max-width:576px){
+
+    /* Heading */
+    .firstContent article h4{
+        font-size: 1em;
+        line-height:1.06em;
+        margin-bottom:20px;
+    }
+    
+    /* First */
+    .container .first{
+        /* position: static; */
+        padding-left:60px !important;
+        padding-top:50px !important;
+        padding-bottom:40px !important;
+        height:810px !important;
+    }
+    
+    /* First content */
+    .container .firstContent{
+        width:100% !important;
+        align-items:center;
+        flex-direction:column;
+        margin-left:29px !important;
+        margin-right:23px !important;
+        left:0px;
+        position:relative;
+        height:809px !important;
+    }
+    
+    /* First content */
+    .container .first .firstContent{
+        right:auto !important;
+        bottom:auto !important;
+        top:auto !important;
+    }
+    
+    /* Article */
+    .first article{
+        position:static;
+        top:0px !important;
+        left:0px !important;
+        display:block;
+        justify-content:center;
+        align-items:center !important;
+        margin-bottom:40px;
+    }
+    .firstContent article p{
+        font-size: 9px;
+    }
+    .firstContent article .logIn {
+        margin-left: 5%;
+    } 
+    
+    /* Article */
+    .container .first .firstContent article{
+        bottom:auto !important;
+        width:68% !important;
+    }
+    
+    /* Interface */
+    .first .interface{
+        background-repeat:no-repeat;
+        /* position:static; */
+        width:100%;
+        max-width:100%;
+        background-size:contain;
+    } 
+}
+
+@media (min-width: 577px) and (max-width:768px){
+
+    /* First */
+    .firstContent article h4{
+        font-size:32px;
+        line-height:1.06em;
+        margin-bottom:20px;
+        /* position: relative; */
+    }
+    .firstContent article p{
+        font-size:12px;
+    }      
+    .container .first{
+        padding-left:60px !important;
+        padding-top:90px !important;
+        padding-bottom:90px !important;
+    }
+    
+    /* First content */
+    .container .firstContent{
+        position:static;
+        bottom:90px;
+        margin-left:29px;
+        margin-right:23px;
+        top:90px;
+        left:60px;
+        width:77%;
+        right:60px;
+        height:20%;
+        /* align-items:center; */
+        flex-direction:row;
+        /* transform:translatex(0px) translatey(0px); */
+    }
+    
+    /* Article */
+    .first article{
+        top:0px;
+        left:0px;
+        /* transform:translatex(0px) translatey(0px); */
+    }
+    
+    /* Article */
+    .container .first .firstContent article{
+        width:85% !important;
+    }
+    
+    /* Interface */
+    .first .interface{
+        height:65%;
+        background-size:contain;
+    }
+    
+    /* Interface */
+    .container .first .firstContent .interface{
+        width:78%;
+    }
+    button.logIn {
+        margin-left: 5%;
+    }
+}
+
+
+@media (min-width: 769px) and (max-width: 992px) {
+    .container .first{
+        padding-right:6% !important;
+        padding-top:12% !important;
+        padding-bottom:12% !important;
+        padding-left:6% !important;
+    }
+       
+       /* First content */
+       .container .firstContent{
+        position:relative;
+        bottom:auto;
+        top:4%;
+        left:6%;
+        width:87%;
+        height: auto;
+        /* align-items:normal; */
+    }
+       
+       /* Interface */
+       .first .interface{
+        /* background-size: cover; */
+        height:auto;
+    }
+       
+       /* Interface */
+       .container .first .firstContent .interface{
+        width:52% !important;
+    }
+}
+
+@media (min-width: 993px) and (max-width: 1200px) {
+    .interface {
+        /* background-size: auto; */
+        width: 420px !important;
+        
+    }
+}
+/* @media (min-width: 1100px) {
+    .interface{
+        width: 550px !important;
+    }
+} */
