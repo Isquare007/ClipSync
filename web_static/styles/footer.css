@@ -20,7 +20,7 @@ footer {
 .footer_column > div {
     text-align: center;
     padding: 20px;
-    border: 1px solid #FFFFFF;
+    /*border: 1px solid #FFFFFF;*/
     /* height: 120px; */
 
 }
