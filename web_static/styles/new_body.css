@@ -125,7 +125,7 @@ button.logIn {
     border-radius: 8px;
 }
 
-@media (max-width:576px){
+@media (max-width:768px){
 
     /* Heading */
     .firstContent article h4{
@@ -195,66 +195,7 @@ button.logIn {
     } 
 }
 
-@media (min-width: 577px) and (max-width:768px){
 
-    /* First */
-    .firstContent article h4{
-        font-size:32px;
-        line-height:1.06em;
-        margin-bottom:20px;
-        /* position: relative; */
-    }
-    .firstContent article p{
-        font-size:12px;
-    }      
-    .container .first{
-        padding-left:60px !important;
-        padding-top:90px !important;
-        padding-bottom:90px !important;
-    }
-    
-    /* First content */
-    .container .firstContent{
-        position:static;
-        bottom:90px;
-        margin-left:29px;
-        margin-right:23px;
-        top:90px;
-        left:60px;
-        width:77%;
-        right:60px;
-        height:20%;
-        /* align-items:center; */
-        flex-direction:row;
-        /* transform:translatex(0px) translatey(0px); */
-    }
-    
-    /* Article */
-    .first article{
-        top:0px;
-        left:0px;
-        /* transform:translatex(0px) translatey(0px); */
-    }
-    
-    /* Article */
-    .container .first .firstContent article{
-        width:85% !important;
-    }
-    
-    /* Interface */
-    .first .interface{
-        height:65%;
-        background-size:contain;
-    }
-    
-    /* Interface */
-    .container .first .firstContent .interface{
-        width:78%;
-    }
-    button.logIn {
-        margin-left: 5%;
-    }
-}
 
 
 @media (min-width: 769px) and (max-width: 992px) {
