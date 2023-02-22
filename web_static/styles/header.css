@@ -215,12 +215,15 @@ a{
         margin-top:20px;
         height:26px;
         margin-bottom:20px;
+        background-color: transparent;
+        border: 0px solid #F0F0F0;
     }
 
     nav ul.dropdown-menu.show {
         display: block;
         width: 120px;
         height: auto;
+        right: 0px;
 
         background-color: rgb(106, 120, 133);
     }

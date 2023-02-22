@@ -1,8 +1,9 @@
 footer {
     position: relative;
     width: auto;
-    height: 245px;
-    background-color: #000022;
+    height: auto;
+    background: #070D3DB2;
+    /* background-color: #000022; */
     /* bottom: 0px; */
 }
 
@@ -30,55 +31,16 @@ div.socials{
     color: #FFFFFF;
     position: relative;
     justify-content: space-between;
-    height: 50px;
-    width: auto;
+    height: auto;
+    width: 92%;
     /* left: 100px; */
     /* top: 195px; */
     padding: 0px 10px;
 }
 
-div#twitter {
-    background-image: url('../images/twitter-logo.jpg');
-    background-repeat: no-repeat;
-    background-size: 200%;
-    width: 70px;
-    height: 50px;
-    position: relative;
-    background-position: center;
-    top: -15px;
-}
-
-div#facebook{
-    background-image: url('../images/facebook-new.png');
-    background-repeat: no-repeat;
-    background-size: 80%;
-    width: 70px;
-    height: 50px;
-    position: relative;
-    background-position: center;
-    top: -15px;
-}
-
-div#linkedIn{
-    background-image: url('../images/linkedin.png');
-    background-repeat: no-repeat;
-    background-size: 70%;
-    width: 70px;
-    height: 50px;
-    position: relative;
-    background-position: center;
-    top: -15px;
-}
-
-div#ig{
-    background-image: url('../images/twitter-logo.jpg');
-    background-repeat: no-repeat;
-    background-size: 200%;
-    width: 70px;
-    height: 50px;
-    position: relative;
-    background-position: center;
-    top: -15px;
+.socials > p {
+    padding: 12px;
+    align-content: center;
 }
 
 .logo {
