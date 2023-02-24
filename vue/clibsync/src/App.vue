@@ -4,20 +4,26 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <template>
 
-<Sidemenu />
-<RouterView />
+<Sidemenu
+/>
+
+<RouterView :content="content" />
 </template>
 
 <script>
 import Sidemenu from './components/Sidemenu.vue';
+import Cliptext from './components/Cliptext.vue';
+import data from './database.json'
 
 export default {
+
     components: {
-        Sidemenu
+        Sidemenu,
+        Cliptext
     },
     data() {
         return {
-
+            content: data,
         }
     }
 }

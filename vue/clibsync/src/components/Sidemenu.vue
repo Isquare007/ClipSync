@@ -35,15 +35,9 @@
 export default {
     methods: {
         menuTrigger() {
-            const dropdown = document.querySelector('.dropbtn');
             const dropdownContent = document.querySelector('.navbar-content');
-            // dropdown.addEventListener('click', () => {
             dropdownContent.classList.toggle('show');
-            //});
         },
-        selector() {
-
-        }
     }
 }
 </script>
