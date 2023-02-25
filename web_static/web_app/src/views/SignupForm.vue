@@ -14,12 +14,12 @@
             <hr style="display: inline-block; width: 45%;">
             <div class="fields">
                 <div class="name">
-                    <input type="text" placeholder="First Name">
-                    <input type="text" placeholder="Last Name">
+                    <input type="text" placeholder="First Name" v-model="FirstName">
+                    <input type="text" placeholder="Last Name" v-model="LastName">
                 </div>
-                <input type="text" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <button>Create Account</button>
+                <input type="text" placeholder="Email" v-model="Email">
+                <input type="password" placeholder="Password" v-model="Password">
+                <button v-on:click="createAccount()">Create Account</button>
                 <p>
                     By continuing, you agree ClibSync <a href=""><span style="color: #1f8f76;">Terms of Service</span></a> and <a href=""><span style="color: #1f8f76;">Privacy Policy</span></a>
                 </p>
@@ -29,8 +29,54 @@
 </template>
 
 <script>
+import { getAuth, onAuthStateChanged, connectAuthEmulator, createUserWithEmailAndPassword } from 'firebase/auth';
+import { getDatabase, ref, set, onValue } from 'firebase/database';
 export default {
-    name: 'SignupForm'
+    name: 'SignupForm',
+    data (){
+        return {
+            FirstName: '',
+            LastName: '',
+            Email: '',
+            Password: ''
+        }
+    },
+    methods: {
+        writeUserData(userId, email, fname, lname) {
+            const db = getDatabase();
+            const reference = ref(db, 'users/' + userId)
+            
+            set(reference, {
+                first_name: fname,
+                last_name: lname,
+                email: email,
+                created_at: new Date().toISOString(),
+                updated_at: new Date().toISOString()
+            })
+        },
+        async createAccount () {
+            const auth = getAuth();
+            const FirstName = this.FirstName;
+            const LastName = this.LastName;
+            const email = this.Email;
+            const password = this.Password;
+            console.log(FirstName, LastName)
+            try{
+                const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                console.log(userCredential);
+                const userData = userCredential.user;
+                console.log(userData);
+                var user_id = userCredential.user.uid;
+                console.log(user_id);
+                localStorage.setItem('user_data', JSON.stringify(userData)); // Keeps userSigned by registering userData on localStorag
+                this.$router.push({name: 'HomePage'}) //Takes signed up user to the home/dash
+            }
+            catch(error) {
+                console.log(error)
+            }
+            this.writeUserData(user_id, email, FirstName, LastName);
+        }
+    }
 }
 
 </script>

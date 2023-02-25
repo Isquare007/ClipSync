@@ -8,29 +8,53 @@
         <div class="login_form">
             <h1>Log In</h1>
             <!-- <h4> New to Clib Sync? <a href=""><span style="color: #1f8f76">Create a new account</span></a></h4> -->
-            <h4> New to Clib Sync? <router-link to="/create"><span style="color: #1f8f76">Create a new account</span></router-link></h4>
+            <h4> New to Clib Sync? <router-link to="/create"><span style="color: #1f8f76">Create a new
+                        account</span></router-link></h4>
             <hr style="display: inline-block; width: 45%;">
             <span style="display: inline;">or</span>
             <hr style="display: inline-block; width: 45%;">
             <div class="fieldsOne">
-                <input type="text" placeholder="Email or Username">
-                <input type="password" placeholder="Password">
+                <input type="text" placeholder="Email or Username" v-model="Email">
+                <input type="password" placeholder="Password" v-model="Password">
                 <p>Forgot password?</p>
-                <button>Log In</button>
+                <button v-on:click="LoginUser()">Log In</button>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import { getAuth, connectAuthEmulator, signInWithEmailAndPassword } from '@firebase/auth';
 export default {
-    name: 'LoginForm'
+    name: 'LoginForm',
+    data() {
+        return {
+            Email: '',
+            Password: ''
+        }
+    },
+    methods: {
+        async LoginUser() {
+            const auth = getAuth();
+            const email = this.Email;
+            const password = this.Password;
+
+            try {
+                const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                const userData = userCredential.user;
+                localStorage.setItem('user_data', JSON.stringify(userData));
+                this.$router.push({ name: 'HomePage' });
+            }
+            catch (error) {
+                console.log(error)
+            }
+        }
+    }
 }
 
 </script>
 
 <style>
-
 .containerOne {
     position: absolute;
     border: 1px solid #f0f0f0;
@@ -44,12 +68,14 @@ export default {
     /* gap: 20px; */
     /* background-color: #F5F5F5; */
 }
+
 div.interfaceOne {
     font-family: 'Mulish', sans-serif;
     font-style: normal;
 
 }
-div.interfaceOne h1{
+
+div.interfaceOne h1 {
     font-weight: 600;
     font-size: 40px;
     line-height: 44px;
@@ -97,6 +123,7 @@ div.interfaceOne p {
     font-size: 16px;
     line-height: 20px;
 }
+
 .login_form a {
     text-decoration: none;
     font-weight: 700;
@@ -110,7 +137,7 @@ div.interfaceOne p {
 
 }
 
- .fieldsOne input {
+.fieldsOne input {
     width: 375px;
     height: 41px;
     margin-bottom: 20px;
@@ -130,6 +157,7 @@ div.interfaceOne p {
     margin-bottom: 20px;
     color: #FFFFFF;
 }
+
 .fieldsOne button:hover {
     opacity: 0.4;
 }
@@ -140,5 +168,4 @@ div.interfaceOne p {
     /* margin-right: auto; */
     margin-bottom: 20px;
     font-size: 12px;
-}
-</style>
+}</style>

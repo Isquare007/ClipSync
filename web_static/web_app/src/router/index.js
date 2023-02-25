@@ -3,21 +3,27 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import LoginForm from '../views/LoginForm.vue';
 import SignupForm from '../views/SignupForm.vue';
+import HomePage from '../views/HomePage.vue';
 
 const routes = [
   {
-      name: 'LoginForm',
-      path: '/login',
-      component: LoginForm
+    name: 'LoginForm',
+    path: '/login',
+    component: LoginForm
   },
   {
-      name: 'SignupForm',
-      path: '/create',
-      component: SignupForm
+    name: 'SignupForm',
+    path: '/create',
+    component: SignupForm
+  },
+  {
+    name: 'HomePage',
+    path: '/home',
+    component: HomePage
   }
 ];
 
-const router= createRouter({
+const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes
 })
