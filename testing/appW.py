@@ -1,6 +1,8 @@
+from datetime import datetime 
 import json
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+
 
 app = Flask(__name__)
 CORS(app)
@@ -17,12 +19,27 @@ def handle_options():
 
 @app.route('/api/v1/upload', methods=['POST'])
 def handle_upload():
-    json_data = request.get_json()
+    data = request.get_json()
 
-    with open('data.json', 'a', encoding="utf-8") as file:
+    with open('vue/clibsync/src/database.json', 'r', encoding="utf-8") as file:
+        json_data = json.load(file)
+        
+    new_id = json_data[-1]['id'] + 1  # auto-increment id
+    new_data = {
+        'id': new_id,
+        'data': data,
+        'created_at': datetime.utcnow().isoformat(),
+        'updated_at': datetime.utcnow().isoformat(),
+        'type': 'text'
+    }
+    
+    json_data.append(new_data)
+    
+    with open('vue/clibsync/src/database.json', 'w', encoding="utf-8") as file:
         json.dump(json_data, file)
 
-    return jsonify({"data": "Data saved"}), 200, {'Access-Control-Allow-Origin': '*'}
+    return jsonify(new_data), 200, {'Access-Control-Allow-Origin': '*'}
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
+

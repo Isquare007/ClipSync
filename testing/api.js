@@ -1,7 +1,7 @@
 async function sendClipboardData() {
     try {
       const data = await navigator.clipboard.readText();
-      const response = await fetch('http://127.0.0.1:5000/api/v1/upload', {
+      const response = await fetch('https://clipsync-1-default-rtdb.firebaseio.com/users/LgFW93tZHPOhNRcG0qVr7sRAYR42.json', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
