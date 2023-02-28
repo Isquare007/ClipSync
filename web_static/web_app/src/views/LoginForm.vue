@@ -1,4 +1,5 @@
 <template>
+    <Header/>
     <div class="containerOne">
         <div class="interfaceOne">
             <img src="../assets/display2.png">
@@ -24,9 +25,13 @@
 </template>
 
 <script>
+import Header from '../components/Header.vue';
 import { getAuth, connectAuthEmulator, signInWithEmailAndPassword } from '@firebase/auth';
 export default {
     name: 'LoginForm',
+    components: {
+        Header
+    },
     data() {
         return {
             Email: '',
