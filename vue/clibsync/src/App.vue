@@ -13,7 +13,6 @@ import { RouterLink, RouterView } from 'vue-router'
 <script>
 import Sidemenu from './components/Sidemenu.vue';
 import Cliptext from './components/Cliptext.vue';
-import data from './database.json'
 
 export default {
     mounted() {
