@@ -24,8 +24,8 @@
                 Clear
             </button>
         </div>
-        <Cliptext v-for="(text, index) in content" :key="text.id" :content="content" :text="text"
-            :index="index" @sendClipboardData="sendClipboardData" />
+        <Cliptext v-for="(text, index) in content" :key="text.id" :content="content" :text="text" :index="index"
+            @sendClipboardData="sendClipboardData" />
     </div>
 </template>
 
@@ -38,10 +38,11 @@ export default {
     data() {
         return {
             lastData: '',
-            isMounted: false
+            isMounted: false,
+            content: ''
         }
     },
-    props: ['content'],
+    // props: ['content'],
     components: {
         Cliptext,
     },
@@ -51,66 +52,112 @@ export default {
         // }, 3000);
         this.isMounted = true;
         this.startInterval();
+        window.addEventListener('focus', this.handleFocus);
+    },
+    activated() {
+        this.isMounted = true;
+        this.startInterval();
+        window.addEventListener('focus', this.handleFocus);
+    },
+    deactivated() {
+        this.isMounted = false;
+        clearInterval(this.intervalId);
+        window.removeEventListener('focus', this.handleFocus);
+    },
+    beforeDestroy() {
+        clearInterval(this.intervalId);
+        window.removeEventListener('focus', this.handleFocus);
     },
     unmount() {
         this.isMounted = false;
     },
     methods: {
         startInterval() {
+            if (this.intervalId) {
+                clearInterval(this.intervalId)
+            }
             this.intervalId = setInterval(() => {
-                if (this.isMounted && document.hasFocus) {
+                if (this.isMounted && document.hasFocus()) {
                     this.sendClipboardData();
+                    this.storage('2EpaUOFlvvOC30ZOLEoh7qABuJy2')
                 } else {
+                    console.log("Document not focused")
                     clearInterval(this.intervalId);
                 }
             }, 1000);
         },
-    async sendClipboardData() {
-        const data = await navigator.clipboard.readText();
-        // document.addEventListener('focus', async () => {
-        //     const data = await navigator.clipboard.readText();
-        
-        if (data !== this.lastData) {
-            // console.log(this.lastData)
-            const clip = {
-                'data': data,
-                'type': 'text',
-                created_at: new Date().toISOString(),
-                updated_at: new Date().toISOString()
+        async sendClipboardData() {
+            const data = await navigator.clipboard.readText();
+            // document.addEventListener('focus', async () => {
+            //     const data = await navigator.clipboard.readText();
+            this.lastData = localStorage.getItem('last_data');
+            console.log(data === this.lastData)
+            if (data !== this.lastData) {
+                this.lastData = data;
+                // console.log(this.lastData)
+                const clip = {
+                    data: data,
+                    type: 'text',
+                    created_at: new Date().toISOString(),
+                    updated_at: new Date().toISOString()
+                }
+                console.log(typeof (this.lastData), typeof (data))
+                localStorage.setItem('last_data', this.lastData);
+                // this.lastData = data
+                this.saveNewClip(clip);
             }
-            console.log(typeof(this.lastData), typeof(data))
-            this.lastData = data
-            this.saveNewClip(clip);
-            
-        }
 
-        // const db = getDatabase();
-        // const reference = ref(db, 'copied_data/' + userId)
+            // const db = getDatabase();
+            // const reference = ref(db, 'copied_data/' + userId)
 
-        // set(reference, {
-        //     'id': id,
-        //     'data': data,
-        //     'type': 'text',
-        //     created_at: new Date().toISOString(),
-        //     updated_at: new Date().toISOString()
-        // })
-    },
-    async saveNewClip(clip) {
-        try {
-            const response = await fetch('https://clipsync-1-default-rtdb.firebaseio.com/copied_data/2EpaUOFlvvOC30ZOLEoh7qABuJy2.json', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(clip)
-            });
-            const json = await response.json();
-            console.log(json);
-        } catch (error) {
-            console.error(error);
-        }
-
-    },
-}         
+            // set(reference, {
+            //     'id': id,
+            //     'data': data,
+            //     'type': 'text',
+            //     created_at: new Date().toISOString(),
+            //     updated_at: new Date().toISOString()
+            // })
+        },
+        handleFocus() {
+            if (this.isMounted) {
+                this.startInterval();
+            }
+        },
+        storage(id) {
+            let data;
+            fetch(`https://clipsync-1-default-rtdb.firebaseio.com/copied_data/${id}.json`)
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error('Failed to fetch data');
+                    }
+                })
+                .then(usersData => {
+                    let arr = Object.entries(usersData).reverse();
+                    let reversedObj = Object.fromEntries(arr);
+                    this.content = reversedObj;
+                    console.log(typeof (this.content));
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        },
+        async saveNewClip(clip) {
+            try {
+                const response = await fetch('https://clipsync-1-default-rtdb.firebaseio.com/copied_data/2EpaUOFlvvOC30ZOLEoh7qABuJy2.json', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(clip)
+                });
+                const dataId = await response.json().name;
+                console.log(dataId);
+            } catch (error) {
+                console.error(error);
+            }
+        },
+    }
 }
 </script>

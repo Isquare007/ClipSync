@@ -1,14 +1,14 @@
 <template>
     <div class="clip-content">
-            <h1 class="empty" v-if="emptyContent()">No clip-content in database</h1>
-            <div class="_1">
-                <div class="copied-text">
-                    <div class="text-6">{{ text.data }}</div>
-                </div>
-                <button @click="copyAction(text.data)"  class="copy-button text-3">
-                    Copy
-                </button>
+        <h1 class="empty" v-if="emptyContent()">No clip-content in database</h1>
+        <div class="_1">
+            <div class="copied-text">
+                <div class="text-6">{{ text.data }}</div>
             </div>
+            <button @click="copyAction(text.data)" class="copy-button text-3">
+                Copy
+            </button>
+        </div>
     </div>
 </template>
 
@@ -17,15 +17,15 @@
 
 export default {
     props: ['content', 'text', 'index'],
-     data() {
-        return{
+    data() {
+        return {
             lastData: ""
         }
-     },
+    },
     mounted() {
-    //     setInterval(() => {
-    //     this.$emit(sendClipboardData());
-    // }, 9000);
+        //     setInterval(() => {
+        //     this.$emit(sendClipboardData());
+        // }, 9000);
     },
 
     methods: {
@@ -39,7 +39,7 @@ export default {
                 console.error("Failed to copy text: ", err);
             }
         },
-        emptyContent(){
+        emptyContent() {
             if (Object.keys(this.content).length) {
                 return false
             }
@@ -64,16 +64,16 @@ export default {
 
         async sendClipboardData() {
             const data = await navigator.clipboard.readText();
-                
-             if (data !== this.lastData) {
-                 this.lastData = data
+
+            if (data !== this.lastData) {
+                this.lastData = data
                 //  this.saveNewClip(data);
                 console.log(this.lastData)
-             }
+            }
 
             // const db = getDatabase();
             // const reference = ref(db, 'copied_data/' + userId)
-            
+
             // set(reference, {
             //     'data': data,
             //     'type': 'text',
