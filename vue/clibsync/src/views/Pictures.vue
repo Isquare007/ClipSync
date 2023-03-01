@@ -1,7 +1,4 @@
 <template>
-    <div>
-        <h1>Pictures</h1>
-    </div>
     <div class="action-buttons">
             <button @click="sendClipboardData()" class="refresh-button w-inline-block">
                 <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">

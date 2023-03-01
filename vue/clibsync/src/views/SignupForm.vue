@@ -32,6 +32,7 @@
 </template>
 
 <script>
+// import '../assets/main.css'
 import Header from '../components/Header.vue';
 import { getAuth, onAuthStateChanged, connectAuthEmulator, createUserWithEmailAndPassword } from 'firebase/auth';
 import { getDatabase, ref, set, onValue } from 'firebase/database';
@@ -87,7 +88,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .container {
     position: absolute;
     border: 1px solid #f0f0f0;
@@ -202,4 +203,27 @@ div.interface p {
 
 .fields p {
     margin-bottom: 20px;
-}</style>
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  font-weight: normal;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--color-text);
+  background: var(--color-background);
+  transition: color 0.5s, background-color 0.5s;
+  line-height: 1.6;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+    Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-size: 15px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+</style>

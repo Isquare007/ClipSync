@@ -496,7 +496,7 @@ div .navoption:active {
     display: none;
 }
 
-.background {
+.top-back {
     display: block;
     height: 80px;
     background-color: #f6f6f7;
@@ -867,7 +867,7 @@ div .navoption:active {
         font-size: 16px;
         font-weight: 600;
     }
-    .background {
+    .top-back {
         display: block;
         background-color: #f6f6f7;
         position: fixed;

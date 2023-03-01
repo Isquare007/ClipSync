@@ -6,7 +6,7 @@ import { getAuth, onAuthStateChanged, connectAuthEmulator, createUserWithEmailAn
 
 
 import './assets/style.css'
-import './assets/main.css'
+
 
 var firebaseConfig = initializeApp({
     apiKey: "AIzaSyBXhUo_ELj_qmWXaowRsrUih9HN27RpdZE",
