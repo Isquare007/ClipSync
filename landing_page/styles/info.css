@@ -1,0 +1,294 @@
+.info{
+    margin-top: 70px;
+    background-color: #F5F5F5;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    overflow: hidden;
+    /* height:2000px; */
+}
+#left {
+    height: 1355px;
+}
+#right {
+    padding-top: 20px;
+}
+
+.head {
+    width: 462px;
+    height: auto;
+
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 36px;
+    line-height: 50px;
+    /* display: flex; */
+    align-items: center;   
+    position: absolute;
+    /* top: 20px; */
+    left: 100px;
+    color: #25313C;
+}
+
+.head > p{
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 29px;
+    color: #434343;
+}
+
+.head > button{
+    width: 130px;
+    height: 30px;
+}
+
+.second {
+    width: 462px;
+    height: auto;
+
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 36px;
+    line-height: 50px;
+    /* display: flex; */
+    align-items: center;   
+    position: relative;
+    top: 35px;
+    left: 100px;
+    color: #25313C;
+}
+
+.second > p{
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 29px;
+    color: #434343;
+}
+
+.second > button{
+    width: 130px;
+    height: 30px;
+}
+
+
+div#img1 {
+    background-image: url(../images/img1.png);
+    background-repeat: no-repeat;
+    width: 475px;
+    height: 410px;
+    margin-bottom: 100px;
+}
+
+div#uix {
+    background-image: url(../images/uix.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 500px;
+    height: 350px;
+}
+
+div#img2 {
+    margin-top: 120px;
+    background-image: url(../images/archi.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 520px;
+    height: 600px;
+}
+
+.info button {
+    background-color: transparent;
+    border-radius: 8px;
+    /* border: 1px solid #FFFFFF; */
+    border: none;
+    color: #000000;
+}
+
+
+.container .info{
+    height:auto !important;
+    max-height:3500px;
+}   
+@media (max-width:768px){
+   
+/* Info */
+   .container .info{
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        max-height: 3500px;
+    }
+
+    article.head {
+        /* position: absolute; */
+        /* align-items: center; */
+        margin-left: 10%;
+    }
+    
+    #left{
+        padding-left:0px;
+    }
+    /* Right */
+    #right{
+        padding-top:0px;
+        padding-right:60px;
+        padding-left:0px;
+    }
+    
+    /* Article */
+    #left article{
+        bottom:auto;
+    }
+    
+    /* Uix */
+    #uix{
+        padding-left:0px;
+        padding-right:0px;
+        padding-top:0px;
+    }
+    
+    /* Left */
+    #left{
+        width:0px;
+    }
+    
+    /* Article */
+    #right article{
+        left:0px;
+    }
+}
+
+@media (max-width:576px){
+
+    /* Article */
+    #left article {
+        left:7%;
+    }
+    
+    /* Heading */
+    #left .head h4{
+        font-size:32px;
+        width:80%;
+    }
+    
+    /* Paragraph */
+    #left .head p{
+        font-size:14px;
+        width:80%;
+    }
+    
+    /* Button */
+    #left .head button{
+        font-size:14px;
+    }
+    
+    /* Division */
+    #left .head div{
+        background-size:contain;
+        margin-bottom:85px;
+    }
+    
+    /* Uix */
+    #uix{
+        background-size:contain;
+    }
+    
+    /* Article */
+    .container .info #right article{
+        left:12% !important;
+    }
+    
+    /* Heading */
+    #right .second h4{
+        font-size:26px;
+        width:80%;
+    }
+    
+    /* Paragraph */
+    #right .second p{
+        font-size:14px;
+        width:80%;
+    }
+    
+    /* Button */
+    #right .second button{
+        font-size:14px;
+    }
+    
+    /* Division */
+    #right .second div{
+        margin-top:90px;
+        width:82%;
+        height:320px;
+    } 
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+    /* Article */
+    #left article{
+        left:5%;
+    }
+
+    #left .head h4{
+        width:90%;
+    }
+       
+    /* Paragraph */
+    #left .head p{
+        width:80%;
+    }
+    #left .head div{
+        width: 80%;
+        background-size: contain;
+    }
+       
+    /* Article */
+    .container .info #right article{
+        left:10% !important;
+    }
+       
+    /* Article */
+    #right article{
+        width:80%;
+    }
+       
+       /* Paragraph */
+    #right .second p{
+        width:90%;
+    }
+       
+    /* Division */
+    #right .second{
+        height:400px;
+        width:100%;
+        margin-left:0px !important;
+    }
+    
+   
+    /* Heading */
+    #right .second h4{
+        width:90%;
+    }
+}
+
+
+@media (max-width:1300px){
+
+    /* Article */
+    #left article{
+        left:6%;
+    }
+    
+    /* Article */
+    .container .info #right article{
+        left:10% !important;
+    }
+    
+    /* Division */
+    #right .second div{
+        width:90%;
+    }
+}

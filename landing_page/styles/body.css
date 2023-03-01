@@ -1,0 +1,29 @@
+body {
+    background-color: #000022;
+
+}
+
+article{
+    position: absolute;
+    width: 599px;
+    height: 268px;
+    left: 141px;
+    top: 127px;
+
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    /* font-weight: 700; */
+    font-size: 44px;
+    line-height: 152.4%;
+    /* or 67px */
+
+    /* display: flex; */
+    align-items: justify;
+
+    color: #FFFFFF;
+}
+
+article p{
+    margin: 10px 0px;
+    font-size: 14px;
+}

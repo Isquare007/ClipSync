@@ -1,0 +1,209 @@
+.fillers{
+    background-color: #a09ca4;
+    padding-left: 125px;
+    padding-right: 60px;
+    /* padding-top: 120px; */
+    /* padding-bottom: 120px; */
+    overflow: hidden;
+}
+
+.container > .lastContent{
+    display: flex;
+    position: absolute !important;
+    width:auto;
+    height:auto;
+    margin-left:0px;
+    margin-right:0px;
+    margin-top:0px;
+    margin-bottom:0px;
+    justify-content:normal;
+    /* align-items: flex-start; */
+}
+
+.fillers article{
+    position: static;
+    display: block;
+    margin-top: 120px;
+    /* left: 141px; */
+    width: 400px;
+    /* top: 1827px; */
+    height: auto;
+
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 152.4%;
+
+    align-items: flex-start;
+    flex-direction: column;
+    color: #FFFFFF;
+}
+
+.fillers article > p{
+    width: 400px;
+    font-family: 'Mulish', sans-serif;
+    font-size: 14px;
+    margin: 10px 0;
+    line-height: 29px;
+}
+
+
+section.interfaceOne {
+    background-image: url(../images/man.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 750px;
+    height: 750px;
+    
+    position: relative;
+    left: 10%;
+    /* right: 5.02%; */
+    /* top: -275px; */
+    /* bottom: 81.41%; */
+}
+
+button#sign_up {
+    /* position: absolute; */
+    color: #FFFFFF;
+    /* left: 55px; */
+    background: #1F8F76;
+    border-radius: 8px;
+    border: 1px solid #1F8F76;
+    /* top: 350px; */
+    width: 120px;
+    height: 40px;
+}
+
+#sign_up p{
+    font-family: 'Heebo', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    width: 100px;
+}
+
+button#logIn {
+    background-color: transparent;
+    /* position: absolute; */
+    color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    /* left: 250px; */
+    /* top: 350px; */
+    width: 100px;
+    height: 40px;
+    margin-left: 50px;
+
+    border-radius: 8px;
+}
+
+#logIn p{
+    font-family: 'Heebo', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.container .fillers .lastContent{
+    display: flex;
+}
+
+
+@media (min-width: 520px) and (max-width:768px){
+
+    /* Last content */
+    .fillers article {
+        margin-top: 0px;
+    }
+
+    .container .fillers {
+        padding-left:16.5%;
+        padding-right:8%;
+        padding-top:16%;
+        padding-bottom:16%;
+    }
+
+    .container .fillers .lastContent {
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+    }
+    
+    /* Interface one */
+    .fillers .interfaceOne {
+        height:550px;
+        position:static;
+        left:0px;
+        width:550px;
+        margin-top:32px;
+    }
+    
+    /* Fillers */
+    .container .fillers {
+        height:auto !important;
+    }
+}
+
+@media (min-width: 450px) and (max-width: 519px) {
+    .container .fillers .lastContent .interfaceOne{
+        width:87% !important;
+        /* background-size: cover; */
+    }
+       
+    /* Last content */
+       .container .fillers .lastContent{
+            width:94% !important;
+            align-items:normal;
+       }
+       
+    /* Fillers */
+    .container .fillers{
+        padding-left:8%;
+        /* padding-right:3%; */
+        padding-top:8%;
+        padding-bottom:8%;
+    } 
+}
+
+@media (min-width: 992px) and  (max-width: 1200px) {
+    .container .fillers {
+        padding-left: 8%;
+        padding-right:3%;
+        /* padding-top:8%; */
+        /* padding-bottom:8%; */
+    }
+
+    .fillers .interfaceOne{
+        position:relative;
+        /* background-size:100% 100%; */
+        background-size: cover;
+        width: 800px;
+    }
+       
+    /* Interface one */
+    .container .fillers .lastContent .interfaceOne{
+        left:7% !important;
+        /* width:50% !important; */
+    }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+    .fillers .interfaceOne {
+        background-size: 100% 100%;
+        /* background-size: cover; */
+        /* width: 600px; */
+    }
+    .container .fillers .lastContent .interfaceOne{
+        left:4% !important;
+        width:54% !important;
+        padding-right: 0px;
+    }
+    .container .fillers {
+        padding-left: 4.9%;
+        padding-right: 0%;
+        /* padding-top:8%; */
+        /* padding-bottom:8%; */
+    }
+}
