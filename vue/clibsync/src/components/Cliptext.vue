@@ -1,6 +1,6 @@
 <template>
     <div class="clip-content">
-        <h1 class="empty" v-if="emptyContent()">No clip-content in database</h1>
+        <h1 class="empty" v-if="emptyContent()">No clip-content in database, Copy something to get started!</h1>
         <div class="_1">
             <div class="copied-text">
                 <div class="text-6">{{ text.data }}</div>

@@ -1,7 +1,5 @@
 <template>
-    <div class="content">
-        <div class="background"></div>
-        <div class="text-block">Texts</div>
+    <div class="background">
         <div class="action-buttons">
             <button @click="sendClipboardData()" class="refresh-button w-inline-block">
                 <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -24,14 +22,19 @@
                 Clear
             </button>
         </div>
+    </div>
+    <div class="content">
+        <div class="text-block">Texts</div>
         <Cliptext v-for="(text, index) in content" :key="text.id" :content="content" :text="text" :index="index"
             @sendClipboardData="sendClipboardData" />
     </div>
+    <Sidemenu
+    />
 </template>
 
 <script>
 import Cliptext from '@/components/Cliptext.vue'
-import { getDatabase, ref, set, onValue } from 'firebase/database';
+import Sidemenu from '@/components/Sidemenu.vue';
 
 export default {
     name: 'Texts',
@@ -44,7 +47,7 @@ export default {
     },
     // props: ['content'],
     components: {
-        Cliptext,
+        Cliptext, Sidemenu
     },
     mounted() {
         //     setInterval(() => {
@@ -55,9 +58,9 @@ export default {
         window.addEventListener('focus', this.handleFocus);
     },
     activated() {
-        this.isMounted = true;
-        this.startInterval();
-        window.addEventListener('focus', this.handleFocus);
+        // this.isMounted = true;
+        // this.startInterval();
+        // window.addEventListener('focus', this.handleFocus);
     },
     deactivated() {
         this.isMounted = false;
@@ -84,7 +87,7 @@ export default {
                     console.log("Document not focused")
                     clearInterval(this.intervalId);
                 }
-            }, 1000);
+            }, 2000);
         },
         async sendClipboardData() {
             const data = await navigator.clipboard.readText();
