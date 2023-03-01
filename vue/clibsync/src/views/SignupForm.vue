@@ -34,7 +34,7 @@
 <script>
 // import '../assets/main.css'
 import Header from '../components/Header.vue';
-import { getAuth, onAuthStateChanged, connectAuthEmulator, createUserWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword } from 'firebase/auth';
 import { getDatabase, ref, set, onValue } from 'firebase/database';
 export default {
     name: 'SignupForm',
@@ -122,6 +122,8 @@ div.interface p {
 
 .interface img {
     margin-left: 20%;
+    width: 70%;
+    height: 50%;
 }
 
 .signup_form {
@@ -167,7 +169,7 @@ div.interface p {
 }
 
 .fields input {
-    width: 375px;
+    width: 100%;
     height: 41px;
     margin-bottom: 20px;
     margin-right: auto;
@@ -189,7 +191,7 @@ div.interface p {
 
 .fields button {
     height: 41px;
-    width: 375px;
+    width: 100%;
     background: #1F8F76;
     border-radius: 8px;
     border: 1px solid;
@@ -204,6 +206,90 @@ div.interface p {
 .fields p {
     margin-bottom: 20px;
 }
+
+
+@media screen and (max-width: 576px) {
+    #app {
+        height: auto !important;
+    }
+
+    .container {
+        display: block;
+        margin-right: 10%;
+        margin-left: 8.65%;
+        margin-top: 90px;
+    }
+
+    .fields input {
+        width: 100%;
+    }
+
+    .fields button {
+        width: 100%;
+    }
+
+    .interface img {
+        margin-left: 20%;
+        width: 70%;
+        height: 70%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #app {
+        height: auto !important;
+    }
+
+    .container {
+        display: block;
+        margin-right: 15% !important;
+        margin-left: 17% !important;
+        margin-top: 90px;
+    }
+
+    .fields input {
+        width: 100%;
+    }
+
+    .fields button {
+        width: 100%;
+    }
+
+    .interface img {
+        margin-left: 20%;
+        width: 70%;
+        height: 70%;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    #app {
+        height: auto !important;
+    }
+
+    .container {
+        /* display: block; */
+        margin-right: 5%;
+        margin-left: 5%;
+        margin-top: 90px;
+    }
+
+    .fields input {
+        width: 100%;
+    }
+
+    .fields button {
+        width: 100%;
+    }
+
+    .interface img {
+        margin-left: 20%;
+        width: 80%;
+        height: 57%;
+    }
+}
+
+
 *,
 *::before,
 *::after {

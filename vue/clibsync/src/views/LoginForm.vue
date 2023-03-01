@@ -1,5 +1,3 @@
-
-
 <template>
     <Header />
     <div class="containerOne">
@@ -71,7 +69,7 @@ export default {
     /* margin-right: auto; */
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    /* gap: 20px; */
+    gap: 20px;
     /* background-color: #F5F5F5; */
 }
 
@@ -93,7 +91,7 @@ div.interfaceOne p {
 }
 
 .interfaceOne img {
-    margin-left: 11.5%;
+    margin-left: 7.5%;
     margin-bottom: 40px;
 }
 
@@ -103,7 +101,7 @@ div.interfaceOne p {
     /* margin-left: 8%; */
     padding: 0 8%;
     /* margin-right: auto; */
-    width: 450px;
+    /* width: 450px; */
     background-color: #FFFFFF;
     border: 1px solid #FFFFFF;
     border-radius: 15px;
@@ -141,7 +139,7 @@ div.interfaceOne p {
 }
 
 .fieldsOne input {
-    width: 375px;
+    width: 100%;
     height: 41px;
     margin-bottom: 20px;
     margin-right: auto;
@@ -153,7 +151,7 @@ div.interfaceOne p {
 
 .fieldsOne button {
     height: 41px;
-    width: 375px;
+    width: 100%;
     background: #1F8F76;
     border-radius: 8px;
     border: 1px solid;
@@ -167,11 +165,97 @@ div.interfaceOne p {
 
 .fieldsOne p {
     /* position: sticky; */
-    margin-left: 70%;
+    margin-left: 65%;
+    /* width: 100%; */
     /* margin-right: auto; */
     margin-bottom: 20px;
     font-size: 12px;
 }
+
+@media screen and (max-width: 576px) {
+    #app {
+        height: auto !important;
+    }
+
+    .containerOne {
+        display: block;
+        margin-right: 10% !important;
+        margin-left: 8.65% !important;
+        margin-top: 90px;
+    }
+
+    .fieldsOne input {
+        width: 100%;
+    }
+
+    .fieldsOne button {
+        width: 100%;
+    }
+
+    .interfaceOne img {
+        margin-left: 20%;
+        width: 70%;
+        height: 70%;
+    }
+}
+
+@media screen and (min-width: 577px) and (max-width: 768px) {
+    #app {
+        height: auto !important;
+    }
+
+    .containerOne {
+        display: block;
+        margin-right: 15% !important;
+        margin-left: 20% !important;
+        margin-top: 90px;
+    }
+
+    .fieldsOne input {
+        width: 100%;
+    }
+
+    .fieldsOne button {
+        width: 100%;
+    }
+
+    .interfaceOne img {
+        margin-left: 20%;
+        width: 70%;
+        height: 70%;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 992px) {
+    #app {
+        height: auto !important;
+    }
+
+    .containerOne {
+        /* display: block; */
+        margin-right: 5%;
+        margin-left: 5%;
+        margin-top: 90px;
+    }
+
+    .fieldsOne input {
+        width: 100%;
+    }
+
+    .fieldsOne button {
+        width: 100%;
+    }
+
+    .interfaceOne img {
+        margin-left: 10%;
+        /* width: 70%; */
+        /* height: 53%; */
+    }
+    .login_form {
+        margin-top: 1%;
+    }
+}
+
 *,
 *::before,
 *::after {

@@ -37,7 +37,7 @@ p.normal {
     width: 43px;
     height: 14px;
     left: 55px;
-    top: 16px;
+    top: 0px;
     font-family: 'Noto Serif Khojki', serif;
     font-style: normal;
     font-weight: 300;
@@ -54,7 +54,7 @@ p.styled {
     width: 38px;
     height: 16px;
     left: 90px;
-    top: 30px;
+    top: 19px;
     font-family: 'Pacifico', cursive;
     font-style: normal;
     font-weight: 400;
