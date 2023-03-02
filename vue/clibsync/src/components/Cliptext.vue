@@ -1,6 +1,5 @@
 <template>
     <div class="clip-content">
-        <h1 class="empty" v-if="emptyContent()">No clip-content in database, Copy something to get started!</h1>
         <div class="_1">
             <div class="copied-text">
                 <div class="text-6">{{ text.data }}</div>
@@ -39,12 +38,7 @@ export default {
                 console.error("Failed to copy text: ", err);
             }
         },
-        emptyContent() {
-            if (Object.keys(this.content).length) {
-                return false
-            }
-            return true
-        },
+        
         //  async saveNewClip(clip) {
         //      try {
         //          const response = await fetch('https://clipsync-1-default-rtdb.firebaseio.com/copied_data/MDWkzWViaoMK3vQmwckEaQnfDEu1.json', {
@@ -84,10 +78,3 @@ export default {
     },
 }
 </script>
-
-<style scoped>
-.empty {
-    margin-top: 50%;
-    color: rgb(187, 190, 190);
-}
-</style>

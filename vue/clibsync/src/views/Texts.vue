@@ -26,8 +26,9 @@
     <div class="content">
         <div class="text-block">Texts</div>
         <Cliptext v-for="(text, index) in content" :key="text.id" :content="content" :text="text" :index="index"
-            @sendClipboardData="sendClipboardData" />
+            @sendClipboardData="sendClipboardData" :emptyContent="emptyContent" />
     </div>
+    <h1 class="empty" v-if="emptyContent()">No clip-content in database, Copy something to get started!</h1>
     <Sidemenu
     />
 </template>
@@ -75,6 +76,12 @@ export default {
         this.isMounted = false;
     },
     methods: {
+        emptyContent() {
+            if (this.content != null)  {
+                return false
+            }
+            return true
+        },
         startInterval() {
             if (this.intervalId) {
                 clearInterval(this.intervalId)
@@ -107,7 +114,7 @@ export default {
                 console.log(typeof (this.lastData), typeof (data))
                 localStorage.setItem('last_data', this.lastData);
                 // this.lastData = data
-                this.saveNewClip(clip);
+                this.saveNewClip(clip, '2EpaUOFlvvOC30ZOLEoh7qABuJy2');
             }
 
             // const db = getDatabase();
@@ -127,7 +134,7 @@ export default {
             }
         },
         storage(id) {
-            let data;
+            // let data;
             fetch(`https://clipsync-1-default-rtdb.firebaseio.com/copied_data/${id}.json`)
                 .then(response => {
                     if (response.ok) {
@@ -137,18 +144,22 @@ export default {
                     }
                 })
                 .then(usersData => {
-                    let arr = Object.entries(usersData).reverse();
-                    let reversedObj = Object.fromEntries(arr);
-                    this.content = reversedObj;
-                    console.log(typeof (this.content));
+                    if (usersData != null) {
+                        let arr = Object.entries(usersData).reverse();
+                        let reversedObj = Object.fromEntries(arr);
+                        this.content = reversedObj;
+                        console.log(typeof (this.content));
+                    } else {
+                        this.content = usersData
+                    }
                 })
                 .catch(error => {
                     console.error(error);
                 });
         },
-        async saveNewClip(clip) {
+        async saveNewClip(clip, id) {
             try {
-                const response = await fetch('https://clipsync-1-default-rtdb.firebaseio.com/copied_data/2EpaUOFlvvOC30ZOLEoh7qABuJy2.json', {
+                const response = await fetch(`https://clipsync-1-default-rtdb.firebaseio.com/copied_data/${id}.json`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -164,3 +175,12 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.empty {
+    margin-top: 20%;
+    margin-left: 18%;
+    color: rgb(187, 190, 190);
+    text-align: center;
+    }
+</style>
