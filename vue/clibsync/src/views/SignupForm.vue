@@ -77,7 +77,7 @@ export default {
                 var user_id = userCredential.user.uid;
                 console.log(user_id);
                 localStorage.setItem('user_data', JSON.stringify(userData)); // Keeps userSigned by registering userData on localStorag
-                this.$router.push({ name: 'HomePage' }) //Takes signed up user to the home/dash
+                this.$router.push({ name: 'texts' }) //Takes signed up user to the home/dash
             }
             catch (error) {
                 console.log(error)
