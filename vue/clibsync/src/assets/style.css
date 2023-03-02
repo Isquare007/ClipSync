@@ -359,7 +359,21 @@ div .navoption:active {
     grid-row-gap: 10px;
     border-radius: 8px;
 }
-
+.log-btn {
+    width: 25px;
+    height: 25px;
+    padding-right: 10px;
+}
+.log-out {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: transparent;
+    background-color: transparent;
+    cursor: pointer;
+    position: fixed;
+    bottom: 3%;
+}
 
 /* .document {
     display: -webkit-box;
