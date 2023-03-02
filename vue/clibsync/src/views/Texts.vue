@@ -100,7 +100,12 @@ export default {
             const data = await navigator.clipboard.readText();
             // document.addEventListener('focus', async () => {
             //     const data = await navigator.clipboard.readText();
-            this.lastData = localStorage.getItem('last_data');
+            // this.lastData = localStorage.getItem('last_data');
+            const response = await fetch(`https://clipsync-1-default-rtdb.firebaseio.com/copied_data/${id}.json`);
+            const userData = await response.json();
+            if (userData) {
+                this.lastData = Object.values(userData).slice(-1)[0].data;
+            }
             console.log(data === this.lastData)
             if (data !== this.lastData) {
                 this.lastData = data;
