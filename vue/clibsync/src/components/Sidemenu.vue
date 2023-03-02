@@ -16,9 +16,10 @@
                     <div class="navoption">
                         <router-link to="/documents" active-class="active" class="_14-regular">Document</router-link>
                     </div>
-                    <button class="log-out">
+                    <button class="log-out" v-on:click="signOut()">
                         <img src="../assets/log_out.svg" class="log-btn">
-                        <router-link to="/documents" active-class="active" class="_14-regular">Log out</router-link>
+                        <p> Log Out</p>
+                        <!-- <router-link to="/documents" active-class="active" class="_14-regular">Log out</router-link> -->
                     </button>
                 </div>
             </nav>
@@ -34,12 +35,24 @@
 </template>
 
 <script>
+import { getAuth, signOut } from 'firebase/auth';
 export default {
     methods: {
         menuTrigger() {
             const dropdownContent = document.querySelector('.navbar-content');
             dropdownContent.classList.toggle('show');
         },
+        signOut() {
+            const auth = getAuth();
+            signOut(auth).then(() => {
+                // Sign-out successful.
+                console.log('User signed out successfully.');
+                this.$router.push({name: 'LoginForm'});
+            }).catch((error) => {
+                // An error happened.
+                console.error(error);
+            });
+        }
     }
 }
 </script>

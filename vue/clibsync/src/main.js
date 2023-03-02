@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import { initializeApp } from 'firebase/app';
-import { getAuth, onAuthStateChanged, connectAuthEmulator, createUserWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, onAuthStateChanged, connectAuthEmulator, createUserWithEmailAndPassword, setPersistence, browserSessionPersistence } from 'firebase/auth';
 
 
 import './assets/style.css'
@@ -26,3 +26,13 @@ const app = createApp(App)
 app.use(router)
 
 app.mount('#app')
+
+
+setPersistence(auth, browserSessionPersistence)
+    .then(() => {
+        console.log('Session persisted in browser session');
+        auth.settings.sessionDuration = 60 * 60 * 24;
+    })
+    .catch((error) => {
+        console.error(error);
+    });

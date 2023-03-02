@@ -27,7 +27,7 @@
 <script>
 // import '../assets/main.css'
 import Header from '../components/Header.vue';
-import { getAuth, connectAuthEmulator, signInWithEmailAndPassword } from '@firebase/auth';
+import { getAuth, connectAuthEmulator, signInWithEmailAndPassword } from 'firebase/auth';
 export default {
     name: 'LoginForm',
     components: {
@@ -46,8 +46,9 @@ export default {
             const password = this.Password;
             try {
                 const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                // console.log(userCredential);
                 const userData = userCredential.user;
-                localStorage.setItem('user_data', JSON.stringify(userData));
+                // localStorage.setItem('user_data', JSON.stringify(userData));
                 this.$router.push({ name: 'texts' });
             }
             catch (error) {
@@ -251,6 +252,7 @@ div.interfaceOne p {
         /* width: 70%; */
         /* height: 53%; */
     }
+
     .login_form {
         margin-top: 1%;
     }
@@ -259,24 +261,23 @@ div.interfaceOne p {
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
-  margin: 0;
-  position: relative;
-  font-weight: normal;
+    box-sizing: border-box;
+    margin: 0;
+    position: relative;
+    font-weight: normal;
 }
 
 body {
-  min-height: 100vh;
-  color: var(--color-text);
-  background: var(--color-background);
-  transition: color 0.5s, background-color 0.5s;
-  line-height: 1.6;
-  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-    Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  font-size: 15px;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    color: var(--color-text);
+    background: var(--color-background);
+    transition: color 0.5s, background-color 0.5s;
+    line-height: 1.6;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+        Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-size: 15px;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
-
 </style>

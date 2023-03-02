@@ -29,14 +29,13 @@
             @sendClipboardData="sendClipboardData" :emptyContent="emptyContent" />
     </div>
     <h1 class="empty" v-if="emptyContent()">No clip-content in database, Copy something to get started!</h1>
-    <Sidemenu
-    />
+    <Sidemenu />
 </template>
 
 <script>
 import Cliptext from '@/components/Cliptext.vue'
 import Sidemenu from '@/components/Sidemenu.vue';
-
+import { getAuth } from 'firebase/auth';
 export default {
     name: 'Texts',
     data() {
@@ -77,7 +76,7 @@ export default {
     },
     methods: {
         emptyContent() {
-            if (this.content != null)  {
+            if (this.content != null) {
                 return false
             }
             return true
@@ -88,15 +87,21 @@ export default {
             }
             this.intervalId = setInterval(() => {
                 if (this.isMounted && document.hasFocus()) {
-                    this.sendClipboardData();
-                    this.storage('2EpaUOFlvvOC30ZOLEoh7qABuJy2')
+                    // const id = auth.UsersCredential.user.uid;
+                    const auth = getAuth();
+                    if (auth.currentUser) {
+                        const id = auth.currentUser.uid;
+                        console.log(id);
+                        this.sendClipboardData(id);
+                        this.storage(id)
+                    }
                 } else {
                     console.log("Document not focused")
                     clearInterval(this.intervalId);
                 }
             }, 2000);
         },
-        async sendClipboardData() {
+        async sendClipboardData(id) {
             const data = await navigator.clipboard.readText();
             // document.addEventListener('focus', async () => {
             //     const data = await navigator.clipboard.readText();
@@ -116,10 +121,10 @@ export default {
                     created_at: new Date().toISOString(),
                     updated_at: new Date().toISOString()
                 }
-                console.log(typeof (this.lastData), typeof (data))
-                localStorage.setItem('last_data', this.lastData);
+                // console.log(typeof (this.lastData), typeof (data))
+                // localStorage.setItem('last_data', this.lastData);
                 // this.lastData = data
-                this.saveNewClip(clip, '2EpaUOFlvvOC30ZOLEoh7qABuJy2');
+                this.saveNewClip(clip, id);
             }
 
             // const db = getDatabase();
@@ -164,6 +169,7 @@ export default {
         },
         async saveNewClip(clip, id) {
             try {
+                // console.log('Id in post is ', id)
                 const response = await fetch(`https://clipsync-1-default-rtdb.firebaseio.com/copied_data/${id}.json`, {
                     method: 'POST',
                     headers: {
@@ -187,5 +193,5 @@ export default {
     margin-left: 18%;
     color: rgb(187, 190, 190);
     text-align: center;
-    }
+}
 </style>
