@@ -9,7 +9,7 @@
         <div class="login_form">
             <h1>Log In</h1>
             <!-- <h4> New to Clib Sync? <a href=""><span style="color: #1f8f76">Create a new account</span></a></h4> -->
-            <h4> New to Clib Sync? <router-link to="/create"><span style="color: #1f8f76">Create a new
+            <h4> New to Clib Sync? <router-link to="/signup"><span style="color: #1f8f76">Create a new
                         account</span></router-link></h4>
             <hr style="display: inline-block; width: 45%;">
             <span style="display: inline;">or</span>
