@@ -111,7 +111,7 @@ button#logIn {
 }
 
 
-@media (min-width: 520px) and (max-width:768px){
+@media (min-width: 520px) and (max-width:768px) {
 
     /* Last content */
     .fillers article {
@@ -146,25 +146,35 @@ button#logIn {
     }
 }
 
-@media (min-width: 450px) and (max-width: 519px) {
-    .container .fillers .lastContent .interfaceOne{
-        width:87% !important;
-        /* background-size: cover; */
+@media (min-width: 350px) and (max-width: 519px) {
+
+    .fillers {
+        height: auto !important;
     }
-       
     /* Last content */
-       .container .fillers .lastContent{
-            width:94% !important;
-            align-items:normal;
-       }
-       
-    /* Fillers */
-    .container .fillers{
-        padding-left:8%;
-        /* padding-right:3%; */
-        padding-top:8%;
-        padding-bottom:8%;
-    } 
+    .fillers article {
+        margin-top: 0px;
+        margin-bottom: 10px;
+    }
+    .fillers article h4 {
+        width: 90%;
+    }
+    .fillers article p {
+        width: 90%;
+    }
+
+    .container .fillers {
+        padding-left:10.5%;
+        padding-right:5%;
+        padding-top:10%;
+        padding-bottom:10%;
+    }
+    .container .fillers .lastContent {
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+    }
+
 }
 
 @media (min-width: 992px) and  (max-width: 1200px) {

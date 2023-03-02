@@ -183,7 +183,7 @@ a{
     .getStarted p{
         font-size: 12px;
     }
-    .nav-menu {
+    /* .nav-menu {
         display: none;
     }
 
@@ -212,7 +212,7 @@ a{
         right: 0px;
 
         background-color: rgb(106, 120, 133);
-    }
+    } */
 }
 
 @media screen and (min-width: 769px) and (max-width: 900px) {

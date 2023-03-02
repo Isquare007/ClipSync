@@ -137,15 +137,16 @@ button.logIn {
     /* First */
     .container .first{
         /* position: static; */
-        padding-left:60px !important;
-        padding-top:50px !important;
-        padding-bottom:40px !important;
+        padding-left:6% !important;
+        padding-top:12% !important;
+        padding-bottom:12% !important;
+        padding-left: 6% !important;
         height:810px !important;
     }
     
     /* First content */
     .container .firstContent{
-        width:100% !important;
+        width: 90% !important;
         align-items:center;
         flex-direction:column;
         margin-left:29px !important;

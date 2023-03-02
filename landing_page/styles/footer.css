@@ -30,17 +30,30 @@ div.socials{
     display: flex;
     color: #FFFFFF;
     position: relative;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     height: auto;
     width: 92%;
+    gap: 20px;
     /* left: 100px; */
     /* top: 195px; */
     padding: 0px 10px;
 }
 
-.socials > p {
+.paragraph {
+    display: flex;
+    flex-direction: row;
     padding: 12px;
-    align-content: center;
+    width: 50%;
+    justify-content: space-between;
+    /* align-content: center; */
+}
+
+
+.socials .links {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    justify-content: space-between;
 }
 
 .logo {
@@ -166,4 +179,21 @@ footer h3 {
 }
 .footer_features a{
     font-size: 12px;
+}
+
+@media screen and (max-width: 576px) {
+    p.tagline {
+        font-size: 12px;
+        width: 100%;
+    }
+    div.socials {
+        flex-direction: column;
+        align-items: center;
+    }
+    .paragraph {
+        width: auto;
+    }
+    .socials .links {
+        width: 90%;
+    }
 }
