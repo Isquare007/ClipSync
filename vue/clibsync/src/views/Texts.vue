@@ -94,8 +94,11 @@ export default {
                     const auth = getAuth();
                     if (auth.currentUser) {
                         const id = auth.currentUser.uid;
-                        this.sendClipboardData(id);
-                        this.storage(id)
+                        const token = auth.currentUser.accessToken;
+                        // console.log(auth.currentUser, token);
+                        // console.log(id);
+                        this.sendClipboardData(id, token);
+                        this.storage(id, token)
                     }
                 } else {
                     console.log("Document not focused")
@@ -103,12 +106,12 @@ export default {
                 }
             }, 2000);
         },
-        async sendClipboardData(id) {
+        async sendClipboardData(id, token) {
             const data = await navigator.clipboard.readText();
             // document.addEventListener('focus', async () => {
             //     const data = await navigator.clipboard.readText();
             this.lastDataLocal = localStorage.getItem('last_data');
-            const response = await fetch(`https://clipsync-1-default-rtdb.firebaseio.com/copied_data/${id}.json`);
+            const response = await fetch(`https://clipsync-1-default-rtdb.firebaseio.com/copied_data/${id}.json?auth=${token}`);
             const userData = await response.json();
             if (userData) {
                 this.lastData = Object.values(userData).slice(-1)[0].data;
@@ -125,8 +128,8 @@ export default {
                 // console.log(typeof (this.lastData), typeof (data))
                 localStorage.setItem('last_data', this.lastDataLocal);
                 // this.lastData = data
-                this.saveNewClip(clip, id);
-                this.deleteOldestItem(id);
+                this.saveNewClip(clip, id, token);
+                this.deleteOldestItem(id, token);
             }
 
             // const db = getDatabase();
@@ -145,9 +148,9 @@ export default {
                 this.startInterval();
             }
         },
-        storage(id) {
+        storage(id, token) {
             // let data;
-            fetch(`https://clipsync-1-default-rtdb.firebaseio.com/copied_data/${id}.json`)
+            fetch(`https://clipsync-1-default-rtdb.firebaseio.com/copied_data/${id}.json?auth=${token}`)
                 .then(response => {
                     if (response.ok) {
                         return response.json();
@@ -169,10 +172,10 @@ export default {
                     console.error(error);
                 });
         },
-        async saveNewClip(clip, id) {
+        async saveNewClip(clip, id, token) {
             try {
                 // console.log('Id in post is ', id)
-                const response = await fetch(`https://clipsync-1-default-rtdb.firebaseio.com/copied_data/${id}.json`, {
+                const response = await fetch(`https://clipsync-1-default-rtdb.firebaseio.com/copied_data/${id}.json?auth=${token}`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -184,7 +187,7 @@ export default {
                 console.error(error);
             }
         },
-        async deleteOldestItem(id) {
+        async deleteOldestItem(id, token) {
             // console.log(this.content, "this")
             // console.log(Object.keys(this.content).length);
             // const response = await fetch(`https://clipsync-1-default-rtdb.firebaseio.com/copied_data/${id}.json`);
@@ -202,7 +205,7 @@ export default {
                     console.log(oldestItemId)
                     // const excessItems = items.slice(0, numExcessItems);
                     // for (const item of excessItems) {
-                    const deleteResponse = await fetch(`https://clipsync-1-default-rtdb.firebaseio.com/copied_data/${id}/${oldestItemId}.json`,
+                    const deleteResponse = await fetch(`https://clipsync-1-default-rtdb.firebaseio.com/copied_data/${id}/${oldestItemId}.json?auth=${token}`,
                         {
                             method: 'DELETE'
                         });
@@ -218,11 +221,12 @@ export default {
             const auth = getAuth();
             if (auth.currentUser) {
                 const id = auth.currentUser.uid;
-                this.clearStorage(id)
+                const token = auth.currentUser.accessToken;
+                this.clearStorage(id, token)
             }
         },
-        async clearStorage(id) {
-            const response = await fetch(`https://clipsync-1-default-rtdb.firebaseio.com/copied_data/${id}.json`, {
+        async clearStorage(id, token) {
+            const response = await fetch(`https://clipsync-1-default-rtdb.firebaseio.com/copied_data/${id}.json?auth=${token}`, {
                 method: 'DELETE'
             });
             if (response.ok) {
