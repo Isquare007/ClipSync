@@ -102,12 +102,13 @@ a{
     width: 110px;
 }
 
-.getStarted p{
+.getStarted a p{
     font-family: 'Heebo', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
     line-height: 20px;
+    color: #FFFFFF;
 }
 
 .dropdown-menu {
@@ -180,7 +181,7 @@ a{
         width: 80px;
         /* height: ; */
     }
-    .getStarted p{
+    .getStarted a p{
         font-size: 12px;
     }
     /* .nav-menu {
