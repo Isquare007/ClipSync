@@ -570,6 +570,13 @@ div .navoption:active {
         -ms-flex-align: center;
         align-items: center;
     }
+    .copied-text {
+        width: 600px;
+    }
+    .text-6{
+        width: 500px;
+    }
+    
 }
 
 @media screen and (max-width: 767px) {
@@ -607,6 +614,9 @@ div .navoption:active {
         -ms-grid-row-align: auto;
         align-self: auto;
     }
+    /* .copied-text{
+        width: 400px;
+    } */
 
     .navbar-logo-left {
         background-color: transparent;
@@ -694,7 +704,11 @@ div .navoption:active {
         position: fixed;
         top: 3%;
     }
-
+    .log-out {
+        position: relative;
+        padding-top: 4px;
+        padding-bottom: 4px;
+    }
     .dropbtn {
         background-color: transparent;
         border-color: transparent;
@@ -756,6 +770,13 @@ div .navoption:active {
         font-size: 15px;
         font-weight: 600;
     }
+    .copied-text {
+        max-width: 450px;
+    }
+    .text-6{
+        max-width: 400px;
+        overflow-x: auto;
+    }
 
     /* .background {
         position: fixed;
@@ -776,6 +797,12 @@ div .navoption:active {
         width: 75%;
         margin-left: 20%;
     }
+    .copied-text {
+        width: 310px;
+    }
+    /* .text-6{
+        max-width: 250px;
+    } */
 
     .logo {
         width: 100px;
@@ -834,7 +861,7 @@ div .navoption:active {
         padding-top: 4px;
         padding-bottom: 4px;
     }
-
+    
     .content {
         margin-left: 20px;
         width: 300px;

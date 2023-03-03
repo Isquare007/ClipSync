@@ -3,10 +3,6 @@
         <div class="navbar-content">
             <nav role="navigation" class="navbar-menu w-nav-menu">
                 <div class="nav"><img src="../assets/LOgo.svg" loading="eager" alt="" class="logo" />
-                    <!-- <div class="selected-text"><img
-                                src="../assets/Vectors-Wrapper.svg"
-                                loading="lazy" alt="" class="vectors-wrapper" />
-                        </div> -->
                     <div class="navoption">
                         <router-link to="/texts" active-class="active" class="_14-regular">Texts</router-link>
                     </div>
@@ -18,7 +14,7 @@
                     </div>
                     <button class="log-out" v-on:click="signOut()">
                         <img src="../assets/log_out.svg" class="log-btn">
-                        <p> Log Out</p>
+                        Log Out
                         <!-- <router-link to="/documents" active-class="active" class="_14-regular">Log out</router-link> -->
                     </button>
                 </div>

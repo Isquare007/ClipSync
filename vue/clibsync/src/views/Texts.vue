@@ -18,7 +18,7 @@
                     </defs>
                 </svg>
             </button>
-            <button class="clear-button w-button">
+            <button class="clear-button w-button" @click="handleClearButton()">
                 Clear
             </button>
         </div>
@@ -41,11 +41,14 @@ export default {
     data() {
         return {
             lastData: '',
+            lastDataLocal: '',
             isMounted: false,
-            content: ''
+            content: '',
+            // uid: localStorage.getItem(''),
         }
     },
-    // props: ['content'],
+    computed: {
+    },
     components: {
         Cliptext, Sidemenu
     },
@@ -91,7 +94,6 @@ export default {
                     const auth = getAuth();
                     if (auth.currentUser) {
                         const id = auth.currentUser.uid;
-                        console.log(id);
                         this.sendClipboardData(id);
                         this.storage(id)
                     }
@@ -105,14 +107,13 @@ export default {
             const data = await navigator.clipboard.readText();
             // document.addEventListener('focus', async () => {
             //     const data = await navigator.clipboard.readText();
-            // this.lastData = localStorage.getItem('last_data');
+            this.lastDataLocal = localStorage.getItem('last_data');
             const response = await fetch(`https://clipsync-1-default-rtdb.firebaseio.com/copied_data/${id}.json`);
             const userData = await response.json();
             if (userData) {
                 this.lastData = Object.values(userData).slice(-1)[0].data;
             }
-            console.log(data === this.lastData)
-            if (data !== this.lastData) {
+            if (data !== this.lastData && data !== this.lastDataLocal) {
                 this.lastData = data;
                 // console.log(this.lastData)
                 const clip = {
@@ -122,9 +123,10 @@ export default {
                     updated_at: new Date().toISOString()
                 }
                 // console.log(typeof (this.lastData), typeof (data))
-                // localStorage.setItem('last_data', this.lastData);
+                localStorage.setItem('last_data', this.lastDataLocal);
                 // this.lastData = data
                 this.saveNewClip(clip, id);
+                this.deleteOldestItem(id);
             }
 
             // const db = getDatabase();
@@ -158,7 +160,7 @@ export default {
                         let arr = Object.entries(usersData).reverse();
                         let reversedObj = Object.fromEntries(arr);
                         this.content = reversedObj;
-                        console.log(typeof (this.content));
+                        // console.log(Object.keys(this.content).length);
                     } else {
                         this.content = usersData
                     }
@@ -178,9 +180,55 @@ export default {
                     body: JSON.stringify(clip)
                 });
                 const dataId = await response.json().name;
-                console.log(dataId);
             } catch (error) {
                 console.error(error);
+            }
+        },
+        async deleteOldestItem(id) {
+            // console.log(this.content, "this")
+            // console.log(Object.keys(this.content).length);
+            // const response = await fetch(`https://clipsync-1-default-rtdb.firebaseio.com/copied_data/${id}.json`);
+            // const items = await response.json();
+            // const itemId = Object.values(items)[0];
+            // console.log(items)
+            // console.log(itemId); 
+            // console.log("lala", Object.keys(this.content)[9])
+            // console.log("lolo", Object.keys(items)[0])
+            if (this.content) {
+                const storageLength = Object.values(this.content).length
+                if (storageLength > 9) {
+                    // const numExcessItems = storageLength - 20
+                    const oldestItemId = Object.keys(this.content)[9];
+                    console.log(oldestItemId)
+                    // const excessItems = items.slice(0, numExcessItems);
+                    // for (const item of excessItems) {
+                    const deleteResponse = await fetch(`https://clipsync-1-default-rtdb.firebaseio.com/copied_data/${id}/${oldestItemId}.json`,
+                        {
+                            method: 'DELETE'
+                        });
+                    if (deleteResponse.ok) {
+                        console.log(`Item ${oldestItemId} deleted successfully.`);
+                    } else {
+                        console.error(`Failed to delete item ${oldestItemId}: ${deleteResponse.statusText}`);
+                    }
+                }
+            }
+        },
+        handleClearButton() {
+            const auth = getAuth();
+            if (auth.currentUser) {
+                const id = auth.currentUser.uid;
+                this.clearStorage(id)
+            }
+        },
+        async clearStorage(id) {
+            const response = await fetch(`https://clipsync-1-default-rtdb.firebaseio.com/copied_data/${id}.json`, {
+                method: 'DELETE'
+            });
+            if (response.ok) {
+                console.log("Database cleared successfully")
+            } else {
+                console.log("failed to clear database")
             }
         },
     }
