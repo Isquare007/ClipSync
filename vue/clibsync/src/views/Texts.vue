@@ -118,6 +118,7 @@ export default {
             }
             if (data !== this.lastData && data !== this.lastDataLocal) {
                 this.lastData = data;
+                this.lastDataLocal = data;
                 // console.log(this.lastData)
                 const clip = {
                     data: data,
