@@ -41,7 +41,7 @@ export default {
     data() {
         return {
             lastData: '',
-            lastDataLocal: '',
+            lastDataLocal: 'Origin',
             isMounted: false,
             content: '',
             // uid: localStorage.getItem(''),
