@@ -173,6 +173,7 @@ div#img2 {
 
     .info, #right {
         height: auto !important;
+        margin-left:1% !important;
     }
 
     /* Article */
