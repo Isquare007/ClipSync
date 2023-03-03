@@ -111,7 +111,7 @@ button.sign_up, .sign_up a{
     /* top: 130%; */
 }
 
-button.logIn, .logIn a {
+button.logIn, .logIn  {
     background-color: transparent;
     /* position: absolute; */
     color: #FFFFFF;
@@ -123,6 +123,10 @@ button.logIn, .logIn a {
 
     border: 1px solid #FFFFFF;
     border-radius: 8px;
+}
+
+.logIn p {
+    color: #FFFFFF;
 }
 
 @media (max-width:768px){
