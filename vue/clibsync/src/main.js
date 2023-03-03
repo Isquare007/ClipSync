@@ -36,3 +36,5 @@ setPersistence(auth, browserSessionPersistence)
     .catch((error) => {
         console.error(error);
     });
+
+export default auth
