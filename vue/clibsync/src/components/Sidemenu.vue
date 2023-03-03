@@ -12,7 +12,7 @@
                     <div class="navoption">
                         <router-link to="/documents" active-class="active" class="_14-regular">Document</router-link>
                     </div>
-                    <button class="log-out" v-on:click="signOut()">
+                    <button class="log-out _14-regular" v-on:click="signOut()">
                         <img src="../assets/log_out.svg" class="log-btn">
                         Log Out
                         <!-- <router-link to="/documents" active-class="active" class="_14-regular">Log out</router-link> -->
