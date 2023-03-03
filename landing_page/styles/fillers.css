@@ -150,17 +150,24 @@ button#logIn {
 
     .fillers {
         height: auto !important;
+        padding-left:2.5% !important;
+        padding-right:2% !important;
+        padding-top:6%;
+        padding-bottom:6%;
     }
     /* Last content */
     .fillers article {
+        margin-left: 1% !important;
+        margin-right: 1% !important;
         margin-top: 0px;
         margin-bottom: 10px;
+        width: 90%;
     }
     .fillers article h4 {
-        width: 90%;
+        width: 100%;
     }
     .fillers article p {
-        width: 90%;
+        width: 100%;
     }
 
     .container .fillers {

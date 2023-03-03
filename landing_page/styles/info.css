@@ -176,6 +176,16 @@ div#img2 {
         margin-left:1% !important;
     }
 
+    #right, .second{
+        margin-right: 1% !important;
+        width: 95%;
+    }
+    #right article {
+        position: static;
+        margin-left: 1% !important;
+        margin-right: 1% !important;
+    }
+
     /* Article */
     #left article {
         /* width: auto; */
@@ -213,6 +223,7 @@ div#img2 {
     
     /* Uix */
     #uix{
+        width: 95% !important;
         background-size:contain;
     }
     
@@ -224,13 +235,13 @@ div#img2 {
     /* Heading */
     #right .second h4{
         font-size:26px;
-        width:80%;
+        width:96%;
     }
     
     /* Paragraph */
     #right .second p{
         font-size:14px;
-        width:80%;
+        width:90%;
     }
     
     /* Button */
@@ -242,7 +253,7 @@ div#img2 {
     #right .second div {
         margin-top:90px;
         margin-left: 1%;
-        width:82% !important;
+        width:90% !important;
         height:320px;
     } 
 }
