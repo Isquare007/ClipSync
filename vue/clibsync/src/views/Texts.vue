@@ -241,10 +241,5 @@ export default {
 </script>
 
 <style scoped>
-.empty {
-    margin-top: 20%;
-    margin-left: 18%;
-    color: rgb(187, 190, 190);
-    text-align: center;
-}
+
 </style>

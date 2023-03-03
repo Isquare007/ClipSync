@@ -523,7 +523,12 @@ div .navoption:active {
 .menu-button {
     display: none;
 }
-
+.empty {
+    margin-top: 20%;
+    margin-left: 18%;
+    color: rgb(187, 190, 190);
+    text-align: center;
+}
 @media screen and (max-width: 991px) {
     ._1 {
         max-width: 550px;
@@ -776,6 +781,12 @@ div .navoption:active {
     .text-6{
         max-width: 400px;
         overflow-x: auto;
+    }
+    .empty {
+        font: 16px;
+        margin-top: 50%;
+        margin-left: 12%;
+
     }
 
     /* .background {
