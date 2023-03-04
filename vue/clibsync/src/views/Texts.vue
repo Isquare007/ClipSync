@@ -101,7 +101,7 @@ export default {
                 this.lastData = Object.values(userData).slice(-1)[0].data;
             }
             if (data !== this.lastData && data !== this.lastDataLocal) {
-                this.lastData = data;
+                // this.lastData = data;
                 this.lastDataLocal = data;
                 const clip = {
                     data: data,
