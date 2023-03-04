@@ -9,7 +9,11 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
+<<<<<<< HEAD
     "clipboard-polyfill": "^2.4.4",
+=======
+    "clipboard-polyfill": "^4.0.0",
+>>>>>>> a0f47ab (Safari)
     "firebase": "^9.17.1",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6"
