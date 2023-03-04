@@ -94,7 +94,7 @@ export default {
         },
         async sendClipboardData(id, token) {
             const data = await navigator.clipboard.readText();
-            this.lastDataLocal = localStorage.getItem('last_data');
+            // this.lastDataLocal = localStorage.getItem('last_data');
             const response = await fetch(`https://clipsync-1-default-rtdb.firebaseio.com/copied_data/${id}.json?auth=${token}`);
             const userData = await response.json();
             if (userData) {
@@ -109,7 +109,7 @@ export default {
                     created_at: new Date().toISOString(),
                     updated_at: new Date().toISOString()
                 }
-                localStorage.setItem('last_data', this.lastDataLocal);
+                // localStorage.setItem('last_data', this.lastDataLocal);
                 this.saveNewClip(clip, id, token);
                 this.deleteOldestItem(id, token);
             }
