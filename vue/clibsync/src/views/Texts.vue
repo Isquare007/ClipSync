@@ -100,9 +100,9 @@ export default {
             if (userData) {
                 this.lastData = Object.values(userData).slice(-1)[0].data;
             }
-            if (data !== this.lastData && data !== this.lastDataLocal) {
-                // this.lastData = data;
-                this.lastDataLocal = data;
+            if (data !== this.lastData ) {
+                this.lastData = data;
+                // this.lastDataLocal = data;
                 const clip = {
                     data: data,
                     type: 'text',
