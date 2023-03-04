@@ -523,7 +523,12 @@ div .navoption:active {
 .menu-button {
     display: none;
 }
-
+.empty {
+    margin-top: 20%;
+    margin-left: 18%;
+    color: rgb(187, 190, 190);
+    text-align: center;
+}
 @media screen and (max-width: 991px) {
     ._1 {
         max-width: 550px;
@@ -587,8 +592,10 @@ div .navoption:active {
     
     .action-buttons {
         position: fixed;
-        top: 40px;
+        top: 50px;
+        left: 15%;
         max-width: 400px;
+        margin-left: 0;
     }
 
     .vectors-wrapper {
@@ -766,6 +773,7 @@ div .navoption:active {
     .text-block {
         position: fixed;
         top: 2%;
+        left: 50%;
         display: block;
         font-size: 15px;
         font-weight: 600;
@@ -776,6 +784,11 @@ div .navoption:active {
     .text-6{
         max-width: 400px;
         overflow-x: auto;
+    }
+    .empty {
+        font-size: 32px;
+        margin-left: 0%;
+        margin-top: 50%;
     }
 
     /* .background {
@@ -795,7 +808,7 @@ div .navoption:active {
         position: fixed;
         top: 30px;
         width: 75%;
-        margin-left: 20%;
+        margin-left: 0%;
     }
     .copied-text {
         width: 310px;
@@ -916,6 +929,11 @@ div .navoption:active {
         top: 0%;
         right: 0%;
         bottom: auto;
+    }
+    .empty {
+        font-size: 20px;
+        margin-left: 0%;
+        margin-top: 40%;
     }
 
     /* .background {

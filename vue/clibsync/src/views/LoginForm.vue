@@ -25,7 +25,6 @@
 </template>
 
 <script>
-// import '../assets/main.css'
 import Header from '../components/Header.vue';
 import { getAuth, connectAuthEmulator, signInWithEmailAndPassword } from 'firebase/auth';
 export default {

@@ -70,11 +70,11 @@ const router = createRouter({
 
 console.log('Before Guard')
 router.beforeEach(async (to, from, next) => {
-	console.log(to)
+	// console.log(to)
 	const requiresAuth = to.matched.some((record) => record.meta.requiresAuth)
 	// console.log('wait')
 	const currentUser = await getCurrentUser();
-	console.log(currentUser);
+	// console.log(currentUser);
 	if (requiresAuth && !currentUser) {
 		// console.log('here not logged in');
 		next('/login')
