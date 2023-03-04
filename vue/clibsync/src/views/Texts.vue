@@ -36,6 +36,7 @@
 import Cliptext from '@/components/Cliptext.vue'
 import Sidemenu from '@/components/Sidemenu.vue';
 import { getAuth } from 'firebase/auth';
+import * as clipboard from 'clipboard-polyfill';
 export default {
     name: 'Texts',
     data() {
@@ -107,7 +108,9 @@ export default {
             }, 2000);
         },
         async sendClipboardData(id, token) {
-            const data = await navigator.clipboard.readText();
+            const data = await clipboard.readText();
+            // alert('data copied')
+            // const data = await navigator.clipboard.readText();
             // document.addEventListener('focus', async () => {
             //     const data = await navigator.clipboard.readText();
             this.lastDataLocal = localStorage.getItem('last_data');
