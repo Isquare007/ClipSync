@@ -30,7 +30,7 @@ app.mount('#app')
 
 setPersistence(auth, browserSessionPersistence)
     .then(() => {
-        console.log('Session persisted in browser session');
+        // console.log('Session persisted in browser session');
         auth.settings.sessionDuration = 60 * 60 * 24;
     })
     .catch((error) => {
