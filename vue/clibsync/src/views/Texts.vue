@@ -41,7 +41,7 @@
 import Cliptext from '@/components/Cliptext.vue'
 import Sidemenu from '@/components/Sidemenu.vue';
 import { getAuth } from 'firebase/auth';
-import * as clipboard from 'clipboard-polyfill';
+
 export default {
     name: 'Texts',
     data() {
