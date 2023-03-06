@@ -24,7 +24,7 @@
                 </button>
             </div>
             <button v-if="showPasteButton" class="send-button text-3 w-button" @click="fetchClipData()">
-                sendClipboardData
+                push content
             </button>
         </div>
     </div>
@@ -80,6 +80,12 @@ export default {
         this.isMounted = false;
     },
     methods: {
+        // moveButton() {
+        //     var button = document.querySelector(".send-button");
+        //     var currentPosition = button.offsetLeft;
+        //     var newPosition = currentPosition + 50;
+        //     button.style.left = newPosition + "px";
+        // },
         emptyContent() {
             if (this.content != null) {
                 return false
@@ -119,7 +125,7 @@ export default {
             try {
                 // const data = await navigator.clipboard.readText();
                 // this.dataW = data
-                
+
                 const auth = getAuth();
                 if (auth.currentUser) {
                     const data = await navigator.clipboard.readText();
@@ -134,7 +140,7 @@ export default {
             }
         },
         async sendClipboardData(id, token, data) {
-            
+
             this.lastDataLocal = localStorage.getItem('last_data');
             const response = await fetch(`https://clipsync-1-default-rtdb.firebaseio.com/copied_data/${id}.json?auth=${token}`);
             const userData = await response.json();
@@ -239,5 +245,4 @@ export default {
 }
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
