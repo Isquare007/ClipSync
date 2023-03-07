@@ -1,6 +1,6 @@
 
 <template>
-    <div class="content">
+    <div class="contents">
         <h1>
             404. Page Not Found
         </h1>
@@ -16,13 +16,13 @@ export default {
 
 
 <style>
-.content {
-    margin-right: auto;
-    margin-left: auto;
-    /* top: auto; */
-    margin: 1px solid #000000;
-    width: 300px;
+.contents {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid #000002;
+    width: 60%;
     height: auto;
-    background-color: #1F8F76;
 }
 </style>
