@@ -4,7 +4,7 @@ import Pictures from '../views/Pictures.vue';
 import Documents from '../views/Documents.vue';
 import LoginForm from '../views/LoginForm.vue';
 import SignupForm from '../views/SignupForm.vue';
-import PageNotFound from '../views/PageNotFound.vue';
+import PageNotFound from '@/views/PageNotFound.vue';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '@/main.js'
 
