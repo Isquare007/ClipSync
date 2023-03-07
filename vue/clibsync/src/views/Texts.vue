@@ -46,23 +46,25 @@ export default {
     name: 'Texts',
     data() {
         return {
-            lastData: '',
-            lastDataLocal: 'Origin',
-            isMounted: false,
-            content: '',
+            lastData: '',  //last clipboard data saved to DB
+            lastDataLocal: 'Origin',  //last clipboard data saved locally
+            isMounted: false,  
+            content: '',  //clipboard data fetched from the database
             showPasteButton: false
         }
     },
     components: {
-        Cliptext, Sidemenu
+        Cliptext, 
+        Sidemenu
     },
     mounted() {
         this.isMounted = true;
         this.startInterval();
         window.addEventListener('focus', this.handleFocus);
         const userAgent = navigator.userAgent;
+        // if user's device is an iOS Webkit adds a button to allow users
+        // send copied content
         if (userAgent.indexOf('Safari') > -1 && userAgent.indexOf('Chrome') === -1) {
-            console.log('The user is using Safari');
             this.showPasteButton = true
         }
         // window.addEventListener('focus', this.fetch);
@@ -86,12 +88,15 @@ export default {
         //     var newPosition = currentPosition + 50;
         //     button.style.left = newPosition + "px";
         // },
+
+        // Checks if user has an copied data in DB
         emptyContent() {
             if (this.content != null) {
                 return false
             }
             return true
         },
+        // Start interval to fecth and save clipboard
         async startInterval() {
             if (this.intervalId) {
                 clearInterval(this.intervalId)
@@ -105,7 +110,6 @@ export default {
                         // const button = document.querySelector('.refresh-button');
                         // button.click();
 
-                        // console.log(userAgent)
                         if (!this.showPasteButton) {
                             // const data =  navigator.clipboard.readText();
                             // this.sendClipboardData(id, token, data);
@@ -115,30 +119,26 @@ export default {
                         this.storage(id, token)
                     }
                 } else {
-                    // console.log("Document not focused")
                     clearInterval(this.intervalId);
                 }
             }, 1000);
         },
-
+        // Fetch clipboard data using Clipboard API 
         async fetchClipData() {
             try {
-                // const data = await navigator.clipboard.readText();
-                // this.dataW = data
-
                 const auth = getAuth();
                 if (auth.currentUser) {
                     const data = await navigator.clipboard.readText();
-                    // console.log("enter the center")
                     const id = auth.currentUser.uid;
                     const token = auth.currentUser.accessToken;
-                    // console.log(id, token)
                     this.sendClipboardData(id, token, data)
                 }
             } catch (err) {
                 console.log('same thing')
             }
         },
+
+        // Entry point to save users data, preventing duplication of data
         async sendClipboardData(id, token, data) {
 
             this.lastDataLocal = localStorage.getItem('last_data');
@@ -147,9 +147,9 @@ export default {
             if (userData) {
                 this.lastData = Object.values(userData).slice(-1)[0].data;
             }
-            console.log(data)
+            // Confirms that current copied data is never empty and never equal to the previous data
+            // Preventing Duplication
             if ((data !== this.lastData && data !== this.lastDataLocal) && (data.trim().length !== 0)) {
-                console.log("sendcccccclip")
                 this.lastData = data;
                 this.lastDataLocal = data;
                 const clip = {
@@ -163,11 +163,13 @@ export default {
                 this.deleteOldestItem(id, token);
             }
         },
+        // Brings the DOM back to focus and keeps the startInterval method running 
         handleFocus() {
             if (this.isMounted) {
                 this.startInterval();
             }
         },
+        // collects all users data from the DB and renders to the UI
         storage(id, token) {
             // let data;
             fetch(`https://clipsync-1-default-rtdb.firebaseio.com/copied_data/${id}.json?auth=${token}`)
@@ -191,6 +193,7 @@ export default {
                     console.error(error);
                 });
         },
+        // Saves new copied content to the DB
         async saveNewClip(clip, id, token) {
             try {
                 // console.log('Id in post is ', id)
@@ -206,6 +209,7 @@ export default {
                 console.error(error);
             }
         },
+        // Limit users storage and deletes users oldest data automatically
         async deleteOldestItem(id, token) {
             if (this.content) {
                 const storageLength = Object.values(this.content).length
@@ -223,6 +227,7 @@ export default {
                 }
             }
         },
+        // calls the clearStorage function on click even of the clear button
         handleClearButton() {
             const auth = getAuth();
             if (auth.currentUser) {
@@ -231,6 +236,7 @@ export default {
                 this.clearStorage(id, token)
             }
         },
+        // clears users Database
         async clearStorage(id, token) {
             const response = await fetch(`https://clipsync-1-default-rtdb.firebaseio.com/copied_data/${id}.json?auth=${token}`, {
                 method: 'DELETE'
