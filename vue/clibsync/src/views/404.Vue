@@ -16,7 +16,7 @@ export default {
 
 
 <style>
-#app.content {
+.content {
     margin-right: auto;
     margin-left: auto;
     /* top: auto; */
