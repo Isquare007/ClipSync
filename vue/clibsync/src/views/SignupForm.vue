@@ -9,22 +9,39 @@
         <div class="signup_form">
             <h1>Create Account</h1>
             <!-- <h4> Already have an account? <a href=""><span style="color: #1f8f76">Log in</span></a></h4> -->
-            <h4> Already have an account? <router-link to="/login"><span style="color: #1f8f76">Log In</span></router-link>
+            <h4> Already have an account?
+                <router-link to="/login">
+                    <span style="color: #1f8f76">Log In
+                    </span>
+                </router-link>
             </h4>
             <hr style="display: inline-block; width: 45%;">
             <span style="display: inline;">or</span>
             <hr style="display: inline-block; width: 45%;">
             <div class="fields">
                 <div class="name">
-                    <input type="text" placeholder="First Name" v-model="FirstName">
-                    <input type="text" placeholder="Last Name" v-model="LastName">
+                    <input type="text"
+                    placeholder="First Name"
+                    v-model="FirstName">
+
+                    <input type="text"
+                    placeholder="Last Name"
+                    v-model="LastName">
                 </div>
                 <input type="text" placeholder="Email" v-model="Email">
                 <input type="password" placeholder="Password" v-model="Password">
                 <button v-on:click="createAccount()">Create Account</button>
                 <p>
-                    By continuing, you agree ClibSync <a href=""><span style="color: #1f8f76;">Terms of Service</span></a>
-                    and <a href=""><span style="color: #1f8f76;">Privacy Policy</span></a>
+                    By continuing, you agree ClibSync
+                    <a href=""><span style="color: #1f8f76;">
+                        Terms of Service
+                    </span>
+                </a>
+                    and <a href="">
+                        <span style="color: #1f8f76;">
+                            Privacy Policy
+                        </span>
+                        </a>
                 </p>
             </div>
         </div>
@@ -33,8 +50,8 @@
 
 <script>
 import Header from '../components/Header.vue';
-import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword } from 'firebase/auth';
-import { getDatabase, ref, set, onValue } from 'firebase/database';
+import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { getDatabase, ref, set} from 'firebase/database';
 export default {
     name: 'SignupForm',
     components: {
@@ -63,6 +80,7 @@ export default {
             })
         },
         async createAccount() {
+            // create user's account
             const auth = getAuth();
             const FirstName = this.FirstName;
             const LastName = this.LastName;

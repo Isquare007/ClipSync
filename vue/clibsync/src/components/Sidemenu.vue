@@ -4,16 +4,27 @@
             <nav role="navigation" class="navbar-menu w-nav-menu">
                 <div class="nav"><img src="../assets/LOgo.svg" loading="eager" alt="" class="logo" />
                     <div class="navoption">
-                        <router-link to="/texts" active-class="active" class="_14-regular">Texts</router-link>
+                        <router-link to="/texts"
+                        active-class="active"
+                        class="_14-regular">Texts
+                    </router-link>
                     </div>
                     <div class="navoption">
-                        <router-link to="/pictures" active-class="active" class="_14-regular">Pictures</router-link>
+                        <router-link to="/pictures"
+                        active-class="active"
+                        class="_14-regular">Pictures
+                    </router-link>
                     </div>
                     <div class="navoption">
-                        <router-link to="/documents" active-class="active" class="_14-regular">Document</router-link>
+                        <router-link to="/documents"
+                        active-class="active"
+                        class="_14-regular">Document
+                    </router-link>
                     </div>
-                    <button class="log-out _14-regular" v-on:click="signOut()">
-                        <img src="../assets/log_out.svg" class="log-btn">
+                    <button class="log-out _14-regular"
+                    v-on:click="signOut()">
+                        <img src="../assets/log_out.svg"
+                        class="log-btn">
                         Log Out
                     </button>
                 </div>
@@ -34,10 +45,12 @@ import { getAuth, signOut } from 'firebase/auth';
 export default {
     methods: {
         menuTrigger() {
+            // Shows the menu content on small screens
             const dropdownContent = document.querySelector('.navbar-content');
             dropdownContent.classList.toggle('show');
         },
         signOut() {
+            // log's user out of the application
             const auth = getAuth();
             signOut(auth).then(() => {
                 // Sign-out successful.

@@ -9,16 +9,29 @@
         <div class="login_form">
             <h1>Log In</h1>
             <!-- <h4> New to Clib Sync? <a href=""><span style="color: #1f8f76">Create a new account</span></a></h4> -->
-            <h4> New to Clib Sync? <router-link to="/signup"><span style="color: #1f8f76">Create a new
-                        account</span></router-link></h4>
+            <h4> New to Clib Sync? 
+                <router-link to="/signup">
+                    <span style="color: #1f8f76">
+                        Create a new
+                        account
+                    </span>
+                    </router-link>
+                </h4>
             <hr style="display: inline-block; width: 45%;">
             <span style="display: inline;">or</span>
             <hr style="display: inline-block; width: 45%;">
             <div class="fieldsOne">
-                <input type="text" placeholder="Email or Username" v-model="Email">
-                <input type="password" placeholder="Password" v-model="Password">
+                <input type="text"
+                placeholder="Email or Username"
+                v-model="Email">
+                <input type="password"
+                placeholder="Password"
+                v-model="Password">
                 <p>Forgot password?</p>
-                <button v-on:click="LoginUser()">Log In</button>
+                <button
+                v-on:click="LoginUser()">
+                Log In
+            </button>
             </div>
         </div>
     </div>
@@ -26,7 +39,7 @@
 
 <script>
 import Header from '../components/Header.vue';
-import { getAuth, connectAuthEmulator, signInWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 export default {
     name: 'LoginForm',
     components: {
@@ -40,6 +53,7 @@ export default {
     },
     methods: {
         async LoginUser() {
+            // logs in user into the application
             const auth = getAuth();
             const email = this.Email;
             const password = this.Password;

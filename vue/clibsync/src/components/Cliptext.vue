@@ -2,6 +2,7 @@
     <div class="clip-content">
         <div class="_1">
             <div class="copied-text">
+                <!-- dynamically populates it with the database content -->
                 <div class="text-6">{{ text.data }}</div>
             </div>
             <button @click="copyAction(text.data)" class="copy-button text-3">
@@ -21,8 +22,9 @@ export default {
         }
     },
     methods: {
-        async copyAction(idd) {
-            const textToCopy = idd
+        async copyAction(id) {
+            // copy's the text of the id passed into it
+            const textToCopy = id
             try {
                 await navigator.clipboard.writeText(textToCopy);
                 console.log("Text copied to clipboard");

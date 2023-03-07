@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import { initializeApp } from 'firebase/app';
-import { getAuth, onAuthStateChanged, connectAuthEmulator, createUserWithEmailAndPassword, setPersistence, browserSessionPersistence } from 'firebase/auth';
+import { getAuth, setPersistence, browserSessionPersistence } from 'firebase/auth';
 
 
 import './assets/style.css'

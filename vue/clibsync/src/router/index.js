@@ -16,11 +16,9 @@ function getCurrentUser() {
 			auth,
 			(user) => {
 				if (user) {
-					// console.log('user')
 					unsubscribe()
 					resolve(user)
 				} else {
-					// console.log('no user')
 					resolve(null)
 				}
 			},
