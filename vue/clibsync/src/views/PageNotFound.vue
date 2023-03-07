@@ -8,10 +8,10 @@
             Page Not Found
         </h1>
         <p class="p-style">The page you're looking for could not be found.</p>
-        <img src="../assets/vector.svg" class="vector">
-        <img src="../assets/vector-1.svg" class="vector1">
-        <img src="../assets/vector-2.svg" class="vector2">
-        <img src="../assets/vector-3.svg" class="vector3">
+        <img src="../assets/Vector.svg" class="vector">
+        <img src="../assets/Vector-1.svg" class="vector1">
+        <img src="../assets/Vector-2.svg" class="vector2">
+        <img src="../assets/Vector-3.svg" class="vector3">
         <img src="../assets/head.svg" class="head">
         <img src="../assets/main1.svg" class="main1">
         <img src="../assets/main2.svg" class="main2">
