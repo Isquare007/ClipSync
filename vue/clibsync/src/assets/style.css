@@ -850,7 +850,7 @@ div .navoption:active {
         width: 62px;
         overflow-wrap: break-word;
         color: rgba(58, 58, 58, 1.0);
-        background-color: rgba(113, 201, 0, 0.5);
+        background-color: rgba(113, 201, 0, 0.75);
     }
     .text-3 {
         font-size: 12px;
