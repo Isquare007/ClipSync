@@ -32,7 +32,6 @@
 </template>
 
 <script>
-// import '../assets/main.css'
 import Header from '../components/Header.vue';
 import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword } from 'firebase/auth';
 import { getDatabase, ref, set, onValue } from 'firebase/database';
@@ -50,6 +49,7 @@ export default {
         }
     },
     methods: {
+        // Creates users Data in the DB
         writeUserData(userId, email, fname, lname) {
             const db = getDatabase();
             const reference = ref(db, 'users/' + userId)
@@ -71,18 +71,14 @@ export default {
             console.log(FirstName, LastName)
             try {
                 const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-                // console.log(userCredential);
-                // const userData = userCredential.user;
-                // console.log(userData);
                 var user_id = userCredential.user.uid;
-                // console.log(user_id);
                 // localStorage.setItem('user_data', JSON.stringify(userData)); // Keeps userSigned by registering userData on localStorag
                 this.$router.push({ name: 'texts' }) //Takes signed up user to the home/dash
             }
             catch (error) {
                 console.log(error)
             }
-            this.writeUserData(user_id, email, FirstName, LastName);
+            this.writeUserData(user_id, email, FirstName, LastName); //writes users data to the DB
         }
     }
 }

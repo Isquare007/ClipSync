@@ -45,7 +45,6 @@ export default {
             const password = this.Password;
             try {
                 const userCredential = await signInWithEmailAndPassword(auth, email, password);
-                // console.log(userCredential);
                 const userData = userCredential.user;
                 // localStorage.setItem('user_data', JSON.stringify(userData));
                 this.$router.push({ name: 'texts' });

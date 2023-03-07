@@ -141,11 +141,11 @@ export default {
         // Entry point to save users data, preventing duplication of data
         async sendClipboardData(id, token, data) {
 
-            this.lastDataLocal = localStorage.getItem('last_data');
+            this.lastDataLocal = localStorage.getItem('last_data');  // Retrives last copied data locally
             const response = await fetch(`https://clipsync-1-default-rtdb.firebaseio.com/copied_data/${id}.json?auth=${token}`);
             const userData = await response.json();
             if (userData) {
-                this.lastData = Object.values(userData).slice(-1)[0].data;
+                this.lastData = Object.values(userData).slice(-1)[0].data; // retrive last data from the database
             }
             // Confirms that current copied data is never empty and never equal to the previous data
             // Preventing Duplication

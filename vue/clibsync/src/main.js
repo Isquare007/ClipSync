@@ -37,5 +37,4 @@ setPersistence(auth, browserSessionPersistence)
         console.error(error);
     });
 
-// export default auth
 export { app, auth }
