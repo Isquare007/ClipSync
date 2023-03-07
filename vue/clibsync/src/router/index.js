@@ -1,9 +1,10 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import Texts from '../views/Texts.vue'
-import Pictures from '../views/Pictures.vue'
-import Documents from '../views/Documents.vue'
+import { createRouter, createWebHistory } from 'vue-router';
+import Texts from '../views/Texts.vue';
+import Pictures from '../views/Pictures.vue';
+import Documents from '../views/Documents.vue';
 import LoginForm from '../views/LoginForm.vue';
 import SignupForm from '../views/SignupForm.vue';
+import PageNotFound from '../views/404.vue';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from '@/main.js'
 
@@ -28,6 +29,8 @@ function getCurrentUser() {
 	})
 }
 
+
+// Navigation gaurd
 const router = createRouter({
 	history: createWebHistory(import.meta.env.BASE_URL),
 	routes: [
@@ -64,22 +67,22 @@ const router = createRouter({
 			meta: {
 				requiresAuth: true,
 			},
+		},
+		{
+			path: '/:pathMatch(.*)*',
+			name: '404',
+			component: PageNotFound,
+
 		}
 	]
 })
 
-console.log('Before Guard')
 router.beforeEach(async (to, from, next) => {
-	// console.log(to)
 	const requiresAuth = to.matched.some((record) => record.meta.requiresAuth)
-	// console.log('wait')
 	const currentUser = await getCurrentUser();
-	// console.log(currentUser);
 	if (requiresAuth && !currentUser) {
-		// console.log('here not logged in');
 		next('/login')
 	} else {
-		// console.log('here');
 		next()
 	}
 })
