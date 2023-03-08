@@ -32,15 +32,19 @@ serve -s dist
 
 ![Landing Page](./landing_page/images/landingpage.jpg)
 
+
 ![User dashboard](./landing_page/images/usersdash.jpg)
 
 ## Bugs
 No known bugs at this time
 
 ## Authors
-Ibrahim Ibrahim - [Github](https://github.com/Isquare007) / [Twitter](https://twitter.com/ibrahhiiiiim) / [Linkedin](https://www.linkedin.com/in/ibrahim-ibrahim-010b2a23a/)
+Ibrahim Ibrahim - [Github](https://github.com/Isquare007) / [Twitter](https://twitter.com/ibrahhiiiiim) / [LinkedIn](https://www.linkedin.com/in/ibrahim-ibrahim-010b2a23a/)
 
-Akinola 
+Oluwatofunmi Akinola - [Githun](https://github.com/carvanino) / [Twitter](https://twitter.com/) / [LinkedIn](https://www.linkedin.com/in/oluwatofunmi-ac/)
+
+## Related Projects
+* [AirBnB Clone](https://github.com/carvanino/AirBnB_clone_v3) - a simple web app made in Python, Flask, and JQuery.
 
 ## License
 Private Domain. Copy write protection
