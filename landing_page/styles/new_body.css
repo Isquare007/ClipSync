@@ -25,7 +25,8 @@ div.container > div.first {
     width:auto;
     height: 575px;
 
-    background-color: #000022;
+    /* background-color: #000022; */
+    background-image: url(../images/background\ 1.png);
 }
 
 /* First content */
@@ -50,15 +51,15 @@ div.container > div.first {
 .first article{
     display: block;
     position: static;
-    width: 450px;
+    width: 550px;
     height: auto;
     left: 141px;
     top: 127px;
 
     font-family: 'Raleway', sans-serif;
     font-style: normal;
-    font-weight: 700;
-    font-size: 36px;
+    font-weight: 600;
+    font-size: 40px;
     line-height: 152.4%;
     /* or 67px */
 
@@ -67,6 +68,11 @@ div.container > div.first {
     align-items: flex-start;
     color: #FFFFFF;
 }
+
+
+.first  h4{
+    font-weight: bold !important;
+   }
 
 .first p{
     margin: 10px 0px;
