@@ -3,7 +3,7 @@
 
  The purpose of this project is to develop a clipboard sync application that allows users to copy and paste text or files across multiple devices seamlessly. The application will provide a centralized location for storing and accessing copied data from any device, making it easy to transfer information between different platforms and devices. You don’t have to copy texts into your messenger to access them on your computer.
 
- ## installation
+ ## Installation
  * clone this repo
  ```
  https://github.com/Isquare007/ClipSync
@@ -12,7 +12,7 @@
  ```sh
  cd vue/clibsync
  ```
- ### install NPM :
+ ### Install NPM :
  ```sh
  npm install
  ```
@@ -31,6 +31,8 @@ serve -s dist
 <center>:tada: Viola the app is life!!! :tada:</center>
 
 ![Landing page](https://imgur.com/3xaWz4A)
+
+![Landing Page](./landing_page/images/landingpage.jpg)
 
 ![User dashboard](https://imgur.com/MQJCDil)
 
