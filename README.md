@@ -30,9 +30,9 @@ serve -s dist
 
 <center>:tada: Viola the app is life!!! :tada:</center>
 
-![Landing page](https://imgur.com/a/doycc00 =250x250)
+![Landing page](https://imgur.com/a/doycc00)
 
-![User dashboard](https://imgur.com/MQJCDil =250x250)
+![User dashboard](https://imgur.com/MQJCDil)
 
 ## Bugs
 No known bugs at this time
