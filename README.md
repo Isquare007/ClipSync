@@ -30,15 +30,15 @@ serve -s dist
 
 <center>:tada: Viola the app is life!!! :tada:</center>
 
-![Landing page](/vue/clibsync/src/assets/readme/landing_page.jpg =250x250)
+![Landing page](https://imgur.com/a/doycc00 =250x250)
 
-![User dashboard](/vue/clibsync/src/assets/readme/dashboard.jpg =250x250)
+![User dashboard](https://imgur.com/MQJCDil =250x250)
 
 ## Bugs
 No known bugs at this time
 
 ## Authors
-Ibrahim Ibrahim - [Github](https://github.com/Isquare007) / [Twitter](https://twitter.com/ibrahhiiiiim) / [Linkedin] (https://www.linkedin.com/in/ibrahim-ibrahim-010b2a23a/)
+Ibrahim Ibrahim - [Github](https://github.com/Isquare007) / [Twitter](https://twitter.com/ibrahhiiiiim) / [Linkedin](https://www.linkedin.com/in/ibrahim-ibrahim-010b2a23a/)
 
 Akinola 
 
