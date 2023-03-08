@@ -4,7 +4,7 @@
         <div class="new-button">
             <div class="action-buttons">
                 <button
-                @click="sendClipboardData()"
+                @click="handleRefreshButton()"
                 class="refresh-button w-inline-block">
                     <svg width="50" height="50" viewBox="0 0 50 50"
                     fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -236,6 +236,15 @@ export default {
                 const id = auth.currentUser.uid;
                 const token = auth.currentUser.accessToken;
                 this.clearStorage(id, token)
+            }
+        },
+        handleRefreshButton() {
+            // Refresh the page with the clipboard content
+            const auth = getAuth();
+            if (auth.currentUser) {
+                const id = auth.currentUser.uid;
+                const token = auth.currentUser.accessToken;
+                this.storage(id, token)
             }
         },
         async clearStorage(id, token) {
