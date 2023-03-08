@@ -207,7 +207,8 @@ footer h3 {
 
 @media screen and (max-width: 576px) {
     footer {
-        height: 450px;
+        height: auto;
+        margin-bottom: 10px !important;
     }
     p.tagline {
         font-size: 12px;
@@ -217,10 +218,26 @@ footer h3 {
         flex-direction: column;
         align-items: center;
     }
+    .copy {
+        display: flex;
+        width: 320px;
+        justify-content: space-around;
+        font-size: 12px;
+    }
     .paragraph {
-        width: auto;
+        width: 100%;
+        font-size: 12px;
     }
     .socials .links {
         width: 90%;
     }
+    .links img {
+        width: 65%;
+        height: 65%;
+    }
+    .footer_column > div:nth-child(3) {
+        /* grid-row-start: span 5/3; */
+        grid-column: 1/ span 1;
+    }
 }
+
