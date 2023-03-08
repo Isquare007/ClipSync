@@ -30,7 +30,7 @@ serve -s dist
 
 <center>:tada: Viola the app is life!!! :tada:</center>
 
-![Landing page](https://imgur.com/a/doycc00)
+![Landing page](https://imgur.com/3xaWz4A)
 
 ![User dashboard](https://imgur.com/MQJCDil)
 
